@@ -1,0 +1,17 @@
+{
+  "name": "FantasySim.Simulation",
+  "rootNamespace": "FantasySim.Simulation",
+  "references": [
+    "FantasySim.Core",
+    "FantasySim.Content"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3f4a8fb35d8d34b448fb76ddbccb82bf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/script/A5_Tile.cs
+  uploadId: 671475

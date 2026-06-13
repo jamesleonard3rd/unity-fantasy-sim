@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 548e5b31a2ad84d4ebf44db7dcdf17c1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _PerlinNoise: {instanceID: 0}
+  - _WorleyNoise: {instanceID: 0}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 229634
+  packageName: Modern 2D Shadows
+  packageVersion: 2.2.6_1v
+  assetPath: Assets/Modern2D/Resources/Shaders/cloud_shadows/cloudShadows.shader
+  uploadId: 868372

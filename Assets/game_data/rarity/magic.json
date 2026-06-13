@@ -1,0 +1,57 @@
+{
+    "no_magic_weight": 50,
+    "types": [
+        {
+            "name": "Fire",
+            "weight": 20,
+            "no_subtype_weight": 30,
+            "subtypes": [
+                {"name": "Lava", "weight": 2, "replaces_parent": true},
+                {"name": "Blue Flames", "weight": 1, "replaces_parent": false}
+            ]
+        },
+        {
+            "name": "Earth",
+            "weight": 20,
+            "no_subtype_weight": 30,
+            "subtypes": [
+                {"name": "Metal", "weight": 7, "replaces_parent": true},
+                {"name": "Sand", "weight": 7, "replaces_parent": true}
+            ]
+        },
+        {
+            "name": "Wind",
+            "weight": 20,
+            "no_subtype_weight": 100,
+            "subtypes": []
+        },
+        {
+            "name": "Water",
+            "weight": 10,
+            "no_subtype_weight": 100,
+            "subtypes": []
+        },
+        {
+            "name": "Shadow",
+            "weight": 2,
+            "no_subtype_weight": 100,
+            "subtypes": []
+        },
+        {
+            "name": "Light",
+            "weight": 2,
+            "no_subtype_weight": 100,
+            "subtypes": []
+        }
+    ],
+    "race_magic_counts": {
+        "Human": {"0": 250, "1": 100, "2": 5},
+        "High Elf": {"1": 100, "2": 20, "3": 2},
+        "Greenskin": {"0": 100, "1": 5}
+    },
+    "race_modifiers": {
+        "Human": {},
+        "High Elf": {},
+        "Greenskin": {}
+    }
+}

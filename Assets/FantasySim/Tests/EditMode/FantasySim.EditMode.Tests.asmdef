@@ -1,0 +1,24 @@
+{
+  "name": "FantasySim.EditMode.Tests",
+  "rootNamespace": "FantasySim.Tests.EditMode",
+  "references": [
+    "FantasySim.Core",
+    "FantasySim.Content",
+    "FantasySim.Persistence",
+    "Gilzoide.SqliteNet"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

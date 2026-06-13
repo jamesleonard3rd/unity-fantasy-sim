@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f3c3e42f0eef11d4bba462a539fbc782
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/_rtp_auto_tiles/forest.asset
+  uploadId: 671475

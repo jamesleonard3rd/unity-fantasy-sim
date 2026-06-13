@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1599dd6c0e347034c8ea1da15f2458a5
+timeCreated: 1516445876
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Scenes/SampleScene.unity
+  uploadId: 671475

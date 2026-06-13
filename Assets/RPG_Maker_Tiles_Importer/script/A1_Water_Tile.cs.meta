@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: ca4ddf930e149bb47b59aac69964fe82
+timeCreated: 1510689295
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/script/A1_Water_Tile.cs
+  uploadId: 671475

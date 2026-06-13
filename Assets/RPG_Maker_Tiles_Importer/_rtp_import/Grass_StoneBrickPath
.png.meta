@@ -1,0 +1,1661 @@
+fileFormatVersion: 2
+guid: a672d38d899a748d0af1cb9050a4d5a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1988257197398490709
+    second: 'Grass_StoneBrickPath
+
+      _0'
+  - first:
+      213: -24245062234543651
+    second: 'Grass_StoneBrickPath
+
+      _00'
+  - first:
+      213: 1593890346302108809
+    second: 'Grass_StoneBrickPath
+
+      _01'
+  - first:
+      213: 5061132127100342246
+    second: 'Grass_StoneBrickPath
+
+      _02'
+  - first:
+      213: 598725696654919458
+    second: 'Grass_StoneBrickPath
+
+      _03'
+  - first:
+      213: 2900848909244726991
+    second: 'Grass_StoneBrickPath
+
+      _04'
+  - first:
+      213: -3979831738833567028
+    second: 'Grass_StoneBrickPath
+
+      _05'
+  - first:
+      213: 5007794325186677992
+    second: 'Grass_StoneBrickPath
+
+      _06'
+  - first:
+      213: -1554436610641538680
+    second: 'Grass_StoneBrickPath
+
+      _07'
+  - first:
+      213: -5772619084167597702
+    second: 'Grass_StoneBrickPath
+
+      _08'
+  - first:
+      213: 6112061277233514256
+    second: 'Grass_StoneBrickPath
+
+      _09'
+  - first:
+      213: -847256530084403213
+    second: 'Grass_StoneBrickPath
+
+      _10'
+  - first:
+      213: 1284716163278020165
+    second: 'Grass_StoneBrickPath
+
+      _11'
+  - first:
+      213: 1119090834010918719
+    second: 'Grass_StoneBrickPath
+
+      _12'
+  - first:
+      213: -5291893060853064989
+    second: 'Grass_StoneBrickPath
+
+      _13'
+  - first:
+      213: -8476807224356407796
+    second: 'Grass_StoneBrickPath
+
+      _14'
+  - first:
+      213: -1401888894803035042
+    second: 'Grass_StoneBrickPath
+
+      _15'
+  - first:
+      213: 8635582856605968511
+    second: 'Grass_StoneBrickPath
+
+      _16'
+  - first:
+      213: 8847319336252631975
+    second: 'Grass_StoneBrickPath
+
+      _17'
+  - first:
+      213: -5487483434642752686
+    second: 'Grass_StoneBrickPath
+
+      _18'
+  - first:
+      213: -1373636644068570122
+    second: 'Grass_StoneBrickPath
+
+      _19'
+  - first:
+      213: -3192473963648159530
+    second: 'Grass_StoneBrickPath
+
+      _20'
+  - first:
+      213: -7171739798966513687
+    second: 'Grass_StoneBrickPath
+
+      _21'
+  - first:
+      213: 1060704973834361817
+    second: 'Grass_StoneBrickPath
+
+      _22'
+  - first:
+      213: 3419672418775022367
+    second: 'Grass_StoneBrickPath
+
+      _23'
+  - first:
+      213: 6923947193828660501
+    second: 'Grass_StoneBrickPath
+
+      _24'
+  - first:
+      213: -6667319825552884482
+    second: 'Grass_StoneBrickPath
+
+      _25'
+  - first:
+      213: -6408082069252435094
+    second: 'Grass_StoneBrickPath
+
+      _26'
+  - first:
+      213: 5255509400493391751
+    second: 'Grass_StoneBrickPath
+
+      _27'
+  - first:
+      213: -5053957209232866370
+    second: 'Grass_StoneBrickPath
+
+      _28'
+  - first:
+      213: -5224554352893328740
+    second: 'Grass_StoneBrickPath
+
+      _29'
+  - first:
+      213: -1069079275162908609
+    second: 'Grass_StoneBrickPath
+
+      _30'
+  - first:
+      213: 1624041835055037462
+    second: 'Grass_StoneBrickPath
+
+      _31'
+  - first:
+      213: -5570324973892490180
+    second: 'Grass_StoneBrickPath
+
+      _32'
+  - first:
+      213: 3044057400484342106
+    second: 'Grass_StoneBrickPath
+
+      _33'
+  - first:
+      213: -165408814959082505
+    second: 'Grass_StoneBrickPath
+
+      _34'
+  - first:
+      213: 5046524756893760514
+    second: 'Grass_StoneBrickPath
+
+      _35'
+  - first:
+      213: 2533667837846921934
+    second: 'Grass_StoneBrickPath
+
+      _36'
+  - first:
+      213: -4763428217304961415
+    second: 'Grass_StoneBrickPath
+
+      _37'
+  - first:
+      213: -5963778552935343486
+    second: 'Grass_StoneBrickPath
+
+      _38'
+  - first:
+      213: -6585293161446323139
+    second: 'Grass_StoneBrickPath
+
+      _39'
+  - first:
+      213: -7167308851267257779
+    second: 'Grass_StoneBrickPath
+
+      _40'
+  - first:
+      213: -1646416864154082878
+    second: 'Grass_StoneBrickPath
+
+      _41'
+  - first:
+      213: 541884590151347310
+    second: 'Grass_StoneBrickPath
+
+      _42'
+  - first:
+      213: 2891605821791040579
+    second: 'Grass_StoneBrickPath
+
+      _43'
+  - first:
+      213: -1429816158329200498
+    second: 'Grass_StoneBrickPath
+
+      _44'
+  - first:
+      213: -4785813755736964128
+    second: 'Grass_StoneBrickPath
+
+      _45'
+  - first:
+      213: -6178968787587934272
+    second: 'Grass_StoneBrickPath
+
+      _46'
+  - first:
+      213: -9147829873483729819
+    second: 'Grass_StoneBrickPath
+
+      _47'
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _00'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9e3fd8e3dd9aff0800000000000000
+      internalID: -24245062234543651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _01'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984f24e33d2ae1610800000000000000
+      internalID: 1593890346302108809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _02'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef0225cad0cc3640800000000000000
+      internalID: 5061132127100342246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _03'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 227c30359d91f4800800000000000000
+      internalID: 598725696654919458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _04'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce7c9ea6b2e14820800000000000000
+      internalID: 2900848909244726991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _05'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc2000d9e1cc4c8c0800000000000000
+      internalID: -3979831738833567028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _06'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec08f408624f7540800000000000000
+      internalID: 5007794325186677992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _07'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88159dc63288d6ae0800000000000000
+      internalID: -1554436610641538680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _08'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71bc80178983efa0800000000000000
+      internalID: -5772619084167597702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _09'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0178cea395762d450800000000000000
+      internalID: 6112061277233514256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _10'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f760b2cca0fd34f0800000000000000
+      internalID: -847256530084403213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _11'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e93653b8a34d110800000000000000
+      internalID: 1284716163278020165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _12'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fcd903f2fc78f00800000000000000
+      internalID: 1119090834010918719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _13'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea9f7e7c4b6f86b0800000000000000
+      internalID: -5291893060853064989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _14'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0675c2ddb45c5a80800000000000000
+      internalID: -8476807224356407796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _15'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c33ba4a7d7b8ce0800000000000000
+      internalID: -1401888894803035042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _16'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f78a374dad0c7d770800000000000000
+      internalID: 8635582856605968511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _17'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab68cbaf0ef7ca70800000000000000
+      internalID: 8847319336252631975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _18'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b374fd3ea88d3b0800000000000000
+      internalID: -5487483434642752686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _19'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb45d300ccdfece0800000000000000
+      internalID: -1373636644068570122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _20'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0711238dd02b3d0800000000000000
+      internalID: -3192473963648159530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _21'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9efc11d76acd87c90800000000000000
+      internalID: -7171739798966513687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _22'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db13e8cd8168be00800000000000000
+      internalID: 1060704973834361817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _23'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b394952fd157f20800000000000000
+      internalID: 3419672418775022367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _24'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51558b3c94dc61060800000000000000
+      internalID: 6923947193828660501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _25'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc300291fbe873a0800000000000000
+      internalID: -6667319825552884482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _26'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6398aa3f4be117a0800000000000000
+      internalID: -6408082069252435094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _27'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f722274f15fe840800000000000000
+      internalID: 5255509400493391751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _28'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb386a9f1bcbcd9b0800000000000000
+      internalID: -5053957209232866370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _29'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9282163f77ae77b0800000000000000
+      internalID: -5224554352893328740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _30'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38ce2f301ed921f0800000000000000
+      internalID: -1069079275162908609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _31'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c34d6c171c98610800000000000000
+      internalID: 1624041835055037462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _32'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ca6a7f2fa32b2b0800000000000000
+      internalID: -5570324973892490180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _33'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59a4cfd31aae3a20800000000000000
+      internalID: 3044057400484342106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _34'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f345a52f8954bdf0800000000000000
+      internalID: -165408814959082505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _35'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cfddc578bd80640800000000000000
+      internalID: 5046524756893760514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _36'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec2a2bd7975692320800000000000000
+      internalID: 2533667837846921934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _37'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e277a2647e4edb0800000000000000
+      internalID: -4763428217304961415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _38'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a1239e0076c3da0800000000000000
+      internalID: -5963778552935343486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _39'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3cce2292c65c94a0800000000000000
+      internalID: -6585293161446323139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _40'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ab3b4e29a988c90800000000000000
+      internalID: -7167308851267257779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _41'
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c122ebc590c629e0800000000000000
+      internalID: -1646416864154082878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _42'
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6caa39e929258700800000000000000
+      internalID: 541884590151347310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _43'
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3447e4eac2c012820800000000000000
+      internalID: 2891605821791040579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _44'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80acac87c5482ce0800000000000000
+      internalID: -1429816158329200498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _45'
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3ce18debf559db0800000000000000
+      internalID: -4785813755736964128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _46'
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7589110a4ef3aa0800000000000000
+      internalID: -6178968787587934272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 'Grass_StoneBrickPath
+
+        _47'
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564bb4582316c0180800000000000000
+      internalID: -9147829873483729819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      'Grass_StoneBrickPath
+
+      _0': -1988257197398490709
+      'Grass_StoneBrickPath
+
+      _00': -24245062234543651
+      'Grass_StoneBrickPath
+
+      _01': 1593890346302108809
+      'Grass_StoneBrickPath
+
+      _02': 5061132127100342246
+      'Grass_StoneBrickPath
+
+      _03': 598725696654919458
+      'Grass_StoneBrickPath
+
+      _04': 2900848909244726991
+      'Grass_StoneBrickPath
+
+      _05': -3979831738833567028
+      'Grass_StoneBrickPath
+
+      _06': 5007794325186677992
+      'Grass_StoneBrickPath
+
+      _07': -1554436610641538680
+      'Grass_StoneBrickPath
+
+      _08': -5772619084167597702
+      'Grass_StoneBrickPath
+
+      _09': 6112061277233514256
+      'Grass_StoneBrickPath
+
+      _10': -847256530084403213
+      'Grass_StoneBrickPath
+
+      _11': 1284716163278020165
+      'Grass_StoneBrickPath
+
+      _12': 1119090834010918719
+      'Grass_StoneBrickPath
+
+      _13': -5291893060853064989
+      'Grass_StoneBrickPath
+
+      _14': -8476807224356407796
+      'Grass_StoneBrickPath
+
+      _15': -1401888894803035042
+      'Grass_StoneBrickPath
+
+      _16': 8635582856605968511
+      'Grass_StoneBrickPath
+
+      _17': 8847319336252631975
+      'Grass_StoneBrickPath
+
+      _18': -5487483434642752686
+      'Grass_StoneBrickPath
+
+      _19': -1373636644068570122
+      'Grass_StoneBrickPath
+
+      _20': -3192473963648159530
+      'Grass_StoneBrickPath
+
+      _21': -7171739798966513687
+      'Grass_StoneBrickPath
+
+      _22': 1060704973834361817
+      'Grass_StoneBrickPath
+
+      _23': 3419672418775022367
+      'Grass_StoneBrickPath
+
+      _24': 6923947193828660501
+      'Grass_StoneBrickPath
+
+      _25': -6667319825552884482
+      'Grass_StoneBrickPath
+
+      _26': -6408082069252435094
+      'Grass_StoneBrickPath
+
+      _27': 5255509400493391751
+      'Grass_StoneBrickPath
+
+      _28': -5053957209232866370
+      'Grass_StoneBrickPath
+
+      _29': -5224554352893328740
+      'Grass_StoneBrickPath
+
+      _30': -1069079275162908609
+      'Grass_StoneBrickPath
+
+      _31': 1624041835055037462
+      'Grass_StoneBrickPath
+
+      _32': -5570324973892490180
+      'Grass_StoneBrickPath
+
+      _33': 3044057400484342106
+      'Grass_StoneBrickPath
+
+      _34': -165408814959082505
+      'Grass_StoneBrickPath
+
+      _35': 5046524756893760514
+      'Grass_StoneBrickPath
+
+      _36': 2533667837846921934
+      'Grass_StoneBrickPath
+
+      _37': -4763428217304961415
+      'Grass_StoneBrickPath
+
+      _38': -5963778552935343486
+      'Grass_StoneBrickPath
+
+      _39': -6585293161446323139
+      'Grass_StoneBrickPath
+
+      _40': -7167308851267257779
+      'Grass_StoneBrickPath
+
+      _41': -1646416864154082878
+      'Grass_StoneBrickPath
+
+      _42': 541884590151347310
+      'Grass_StoneBrickPath
+
+      _43': 2891605821791040579
+      'Grass_StoneBrickPath
+
+      _44': -1429816158329200498
+      'Grass_StoneBrickPath
+
+      _45': -4785813755736964128
+      'Grass_StoneBrickPath
+
+      _46': -6178968787587934272
+      'Grass_StoneBrickPath
+
+      _47': -9147829873483729819
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

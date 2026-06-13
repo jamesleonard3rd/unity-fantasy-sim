@@ -1,0 +1,1405 @@
+fileFormatVersion: 2
+guid: d44a2814d704d4c4d9505f683db5fb54
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5251377057517856209
+    second: _T_Fantasy_Outside_A2_2_green_7_0
+  - first:
+      213: 112681744488651678
+    second: _T_Fantasy_Outside_A2_2_green_7_1
+  - first:
+      213: 6818860173619674263
+    second: _T_Fantasy_Outside_A2_2_green_7_2
+  - first:
+      213: -8296215891028827314
+    second: _T_Fantasy_Outside_A2_2_green_7_3
+  - first:
+      213: -6682243181109821066
+    second: _T_Fantasy_Outside_A2_2_green_7_4
+  - first:
+      213: -4887203040656990868
+    second: _T_Fantasy_Outside_A2_2_green_7_5
+  - first:
+      213: 3415743154082683097
+    second: _T_Fantasy_Outside_A2_2_green_7_6
+  - first:
+      213: 3521634053230829621
+    second: _T_Fantasy_Outside_A2_2_green_7_7
+  - first:
+      213: 6322313583455095004
+    second: _T_Fantasy_Outside_A2_2_green_7_8
+  - first:
+      213: 5955446520078364096
+    second: _T_Fantasy_Outside_A2_2_green_7_9
+  - first:
+      213: -3441546662830808951
+    second: _T_Fantasy_Outside_A2_2_green_7_10
+  - first:
+      213: 9004102037610686104
+    second: _T_Fantasy_Outside_A2_2_green_7_00
+  - first:
+      213: 2312080548048130502
+    second: _T_Fantasy_Outside_A2_2_green_7_01
+  - first:
+      213: -8861967120831079924
+    second: _T_Fantasy_Outside_A2_2_green_7_02
+  - first:
+      213: -2477089997561914619
+    second: _T_Fantasy_Outside_A2_2_green_7_03
+  - first:
+      213: -1669771115962150712
+    second: _T_Fantasy_Outside_A2_2_green_7_04
+  - first:
+      213: -3358983068784646200
+    second: _T_Fantasy_Outside_A2_2_green_7_05
+  - first:
+      213: 5089317048041677587
+    second: _T_Fantasy_Outside_A2_2_green_7_06
+  - first:
+      213: 8653112837665622772
+    second: _T_Fantasy_Outside_A2_2_green_7_07
+  - first:
+      213: -8681317371456493137
+    second: _T_Fantasy_Outside_A2_2_green_7_08
+  - first:
+      213: -1095469455286606496
+    second: _T_Fantasy_Outside_A2_2_green_7_09
+  - first:
+      213: 7087743247306466606
+    second: _T_Fantasy_Outside_A2_2_green_7_11
+  - first:
+      213: 5365747178340746944
+    second: _T_Fantasy_Outside_A2_2_green_7_12
+  - first:
+      213: 8635289054928118078
+    second: _T_Fantasy_Outside_A2_2_green_7_13
+  - first:
+      213: -6756096839137499852
+    second: _T_Fantasy_Outside_A2_2_green_7_14
+  - first:
+      213: -2154559319984781351
+    second: _T_Fantasy_Outside_A2_2_green_7_15
+  - first:
+      213: -1064407841752355003
+    second: _T_Fantasy_Outside_A2_2_green_7_16
+  - first:
+      213: 4657132773671942263
+    second: _T_Fantasy_Outside_A2_2_green_7_17
+  - first:
+      213: 4321899532551372706
+    second: _T_Fantasy_Outside_A2_2_green_7_18
+  - first:
+      213: -935153557469846933
+    second: _T_Fantasy_Outside_A2_2_green_7_19
+  - first:
+      213: 6841767710134775274
+    second: _T_Fantasy_Outside_A2_2_green_7_20
+  - first:
+      213: -5713444765395004888
+    second: _T_Fantasy_Outside_A2_2_green_7_21
+  - first:
+      213: 9112044387939688619
+    second: _T_Fantasy_Outside_A2_2_green_7_22
+  - first:
+      213: 3909736787354870428
+    second: _T_Fantasy_Outside_A2_2_green_7_23
+  - first:
+      213: -4102718528390406520
+    second: _T_Fantasy_Outside_A2_2_green_7_24
+  - first:
+      213: 5859096387458218229
+    second: _T_Fantasy_Outside_A2_2_green_7_25
+  - first:
+      213: -5415056676053028510
+    second: _T_Fantasy_Outside_A2_2_green_7_26
+  - first:
+      213: 1092528310790068589
+    second: _T_Fantasy_Outside_A2_2_green_7_27
+  - first:
+      213: 1863330863990633683
+    second: _T_Fantasy_Outside_A2_2_green_7_28
+  - first:
+      213: 7086855368085984594
+    second: _T_Fantasy_Outside_A2_2_green_7_29
+  - first:
+      213: -967035754338598881
+    second: _T_Fantasy_Outside_A2_2_green_7_30
+  - first:
+      213: -3600928352773143383
+    second: _T_Fantasy_Outside_A2_2_green_7_31
+  - first:
+      213: 3558048740704392539
+    second: _T_Fantasy_Outside_A2_2_green_7_32
+  - first:
+      213: -5370115741028879234
+    second: _T_Fantasy_Outside_A2_2_green_7_33
+  - first:
+      213: -1419460776057686929
+    second: _T_Fantasy_Outside_A2_2_green_7_34
+  - first:
+      213: 9116922043266291547
+    second: _T_Fantasy_Outside_A2_2_green_7_35
+  - first:
+      213: 5436004605850830276
+    second: _T_Fantasy_Outside_A2_2_green_7_36
+  - first:
+      213: 700071019117409493
+    second: _T_Fantasy_Outside_A2_2_green_7_37
+  - first:
+      213: -7022557617029923862
+    second: _T_Fantasy_Outside_A2_2_green_7_38
+  - first:
+      213: -6010483016718870063
+    second: _T_Fantasy_Outside_A2_2_green_7_39
+  - first:
+      213: 5975279813729054706
+    second: _T_Fantasy_Outside_A2_2_green_7_40
+  - first:
+      213: 5087779503188669147
+    second: _T_Fantasy_Outside_A2_2_green_7_41
+  - first:
+      213: 5869459246146391637
+    second: _T_Fantasy_Outside_A2_2_green_7_42
+  - first:
+      213: -3354483682299365130
+    second: _T_Fantasy_Outside_A2_2_green_7_43
+  - first:
+      213: 7634865250556593199
+    second: _T_Fantasy_Outside_A2_2_green_7_44
+  - first:
+      213: 7140387234886863447
+    second: _T_Fantasy_Outside_A2_2_green_7_45
+  - first:
+      213: 4348345115723656754
+    second: _T_Fantasy_Outside_A2_2_green_7_46
+  - first:
+      213: -67544321423820109
+    second: _T_Fantasy_Outside_A2_2_green_7_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896e721f81ff4fc70800000000000000
+      internalID: 9004102037610686104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_01
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1df7e2209261020800000000000000
+      internalID: 2312080548048130502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_02
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a1ca73bd7f30580800000000000000
+      internalID: -8861967120831079924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_03
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b16aa75cb9f9dd0800000000000000
+      internalID: -2477089997561914619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_04
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c05ed05408c3d8e0800000000000000
+      internalID: -1669771115962150712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_05
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c72a8212be7261d0800000000000000
+      internalID: -3358983068784646200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_06
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3132ddd04e2e0a640800000000000000
+      internalID: 5089317048041677587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_07
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa8e6a9748061870800000000000000
+      internalID: 8653112837665622772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_08
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa968e3a8d3c58780800000000000000
+      internalID: -8681317371456493137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_09
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065e95f955c1cc0f0800000000000000
+      internalID: -1095469455286606496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980e9045b8b2d30d0800000000000000
+      internalID: -3441546662830808951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2520e25ee8bc5260800000000000000
+      internalID: 7087743247306466606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c60e8731a6f67a40800000000000000
+      internalID: 5365747178340746944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e312fcbc4a5b6d770800000000000000
+      internalID: 8635289054928118078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435e11b58b58d32a0800000000000000
+      internalID: -6756096839137499852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7ccccb6b77912e0800000000000000
+      internalID: -2154559319984781351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fe53815b67a31f0800000000000000
+      internalID: -1064407841752355003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778bb86459571a040800000000000000
+      internalID: 4657132773671942263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2afb6a8f9b87afb30800000000000000
+      internalID: 4321899532551372706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62219c4bcaa503f0800000000000000
+      internalID: -935153557469846933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed225eab77d2fe50800000000000000
+      internalID: 6841767710134775274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_21
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822d0dac144c5b0b0800000000000000
+      internalID: -5713444765395004888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0acb8d71c747e70800000000000000
+      internalID: 9112044387939688619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_23
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c926097b4ec224630800000000000000
+      internalID: 3909736787354870428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e50ed4c373017c0800000000000000
+      internalID: -4102718528390406520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_25
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8b83f1f11bf4150800000000000000
+      internalID: 5859096387458218229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2617041b4aad9d4b0800000000000000
+      internalID: -5415056676053028510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_27
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6913bfc5b0792f00800000000000000
+      internalID: 1092528310790068589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4fe276c81ebd910800000000000000
+      internalID: 1863330863990633683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_29
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255d555d861995260800000000000000
+      internalID: 7086855368085984594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10cb81ea166492f0800000000000000
+      internalID: -967035754338598881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_31
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4035fddbee60ec0800000000000000
+      internalID: -3600928352773143383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5516337a7ab06130800000000000000
+      internalID: 3558048740704392539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e747d358f248975b0800000000000000
+      internalID: -5370115741028879234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f643b7ed1ff0d4ce0800000000000000
+      internalID: -1419460776057686929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_35
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b57d0d97b40d58e70800000000000000
+      internalID: 9116922043266291547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c540294361907b40800000000000000
+      internalID: 5436004605850830276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_37
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4f90cf1e627b900800000000000000
+      internalID: 700071019117409493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_38
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebb73eed0dda8e90800000000000000
+      internalID: -7022557617029923862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_39
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d914fb8a89769ca0800000000000000
+      internalID: -6010483016718870063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffe1ea05557ce250800000000000000
+      internalID: 5975279813729054706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_41
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2f21f708c6b9640800000000000000
+      internalID: 5087779503188669147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e003e2612847150800000000000000
+      internalID: 5869459246146391637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_43
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8b3bf1dda7271d0800000000000000
+      internalID: -3354483682299365130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_44
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24466f7e7d74f960800000000000000
+      internalID: 7634865250556593199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_45
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a4a26db50c71360800000000000000
+      internalID: 7140387234886863447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_46
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e638f18dc685c30800000000000000
+      internalID: 4348345115723656754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _T_Fantasy_Outside_A2_2_green_7_47
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba30fa2cc8001ff0800000000000000
+      internalID: -67544321423820109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      _T_Fantasy_Outside_A2_2_green_7_0: -5251377057517856209
+      _T_Fantasy_Outside_A2_2_green_7_00: 9004102037610686104
+      _T_Fantasy_Outside_A2_2_green_7_01: 2312080548048130502
+      _T_Fantasy_Outside_A2_2_green_7_02: -8861967120831079924
+      _T_Fantasy_Outside_A2_2_green_7_03: -2477089997561914619
+      _T_Fantasy_Outside_A2_2_green_7_04: -1669771115962150712
+      _T_Fantasy_Outside_A2_2_green_7_05: -3358983068784646200
+      _T_Fantasy_Outside_A2_2_green_7_06: 5089317048041677587
+      _T_Fantasy_Outside_A2_2_green_7_07: 8653112837665622772
+      _T_Fantasy_Outside_A2_2_green_7_08: -8681317371456493137
+      _T_Fantasy_Outside_A2_2_green_7_09: -1095469455286606496
+      _T_Fantasy_Outside_A2_2_green_7_1: 112681744488651678
+      _T_Fantasy_Outside_A2_2_green_7_10: -3441546662830808951
+      _T_Fantasy_Outside_A2_2_green_7_11: 7087743247306466606
+      _T_Fantasy_Outside_A2_2_green_7_12: 5365747178340746944
+      _T_Fantasy_Outside_A2_2_green_7_13: 8635289054928118078
+      _T_Fantasy_Outside_A2_2_green_7_14: -6756096839137499852
+      _T_Fantasy_Outside_A2_2_green_7_15: -2154559319984781351
+      _T_Fantasy_Outside_A2_2_green_7_16: -1064407841752355003
+      _T_Fantasy_Outside_A2_2_green_7_17: 4657132773671942263
+      _T_Fantasy_Outside_A2_2_green_7_18: 4321899532551372706
+      _T_Fantasy_Outside_A2_2_green_7_19: -935153557469846933
+      _T_Fantasy_Outside_A2_2_green_7_2: 6818860173619674263
+      _T_Fantasy_Outside_A2_2_green_7_20: 6841767710134775274
+      _T_Fantasy_Outside_A2_2_green_7_21: -5713444765395004888
+      _T_Fantasy_Outside_A2_2_green_7_22: 9112044387939688619
+      _T_Fantasy_Outside_A2_2_green_7_23: 3909736787354870428
+      _T_Fantasy_Outside_A2_2_green_7_24: -4102718528390406520
+      _T_Fantasy_Outside_A2_2_green_7_25: 5859096387458218229
+      _T_Fantasy_Outside_A2_2_green_7_26: -5415056676053028510
+      _T_Fantasy_Outside_A2_2_green_7_27: 1092528310790068589
+      _T_Fantasy_Outside_A2_2_green_7_28: 1863330863990633683
+      _T_Fantasy_Outside_A2_2_green_7_29: 7086855368085984594
+      _T_Fantasy_Outside_A2_2_green_7_3: -8296215891028827314
+      _T_Fantasy_Outside_A2_2_green_7_30: -967035754338598881
+      _T_Fantasy_Outside_A2_2_green_7_31: -3600928352773143383
+      _T_Fantasy_Outside_A2_2_green_7_32: 3558048740704392539
+      _T_Fantasy_Outside_A2_2_green_7_33: -5370115741028879234
+      _T_Fantasy_Outside_A2_2_green_7_34: -1419460776057686929
+      _T_Fantasy_Outside_A2_2_green_7_35: 9116922043266291547
+      _T_Fantasy_Outside_A2_2_green_7_36: 5436004605850830276
+      _T_Fantasy_Outside_A2_2_green_7_37: 700071019117409493
+      _T_Fantasy_Outside_A2_2_green_7_38: -7022557617029923862
+      _T_Fantasy_Outside_A2_2_green_7_39: -6010483016718870063
+      _T_Fantasy_Outside_A2_2_green_7_4: -6682243181109821066
+      _T_Fantasy_Outside_A2_2_green_7_40: 5975279813729054706
+      _T_Fantasy_Outside_A2_2_green_7_41: 5087779503188669147
+      _T_Fantasy_Outside_A2_2_green_7_42: 5869459246146391637
+      _T_Fantasy_Outside_A2_2_green_7_43: -3354483682299365130
+      _T_Fantasy_Outside_A2_2_green_7_44: 7634865250556593199
+      _T_Fantasy_Outside_A2_2_green_7_45: 7140387234886863447
+      _T_Fantasy_Outside_A2_2_green_7_46: 4348345115723656754
+      _T_Fantasy_Outside_A2_2_green_7_47: -67544321423820109
+      _T_Fantasy_Outside_A2_2_green_7_5: -4887203040656990868
+      _T_Fantasy_Outside_A2_2_green_7_6: 3415743154082683097
+      _T_Fantasy_Outside_A2_2_green_7_7: 3521634053230829621
+      _T_Fantasy_Outside_A2_2_green_7_8: 6322313583455095004
+      _T_Fantasy_Outside_A2_2_green_7_9: 5955446520078364096
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 042734d374e77d542834bbf7275c7a1c
+timeCreated: 1525785671
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Editor/Windows/Full_Layout_windows/RPGMXP_Water_Impoter_Windows.cs
+  uploadId: 671475

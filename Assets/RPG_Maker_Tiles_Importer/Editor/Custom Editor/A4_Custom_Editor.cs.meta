@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 8c02867a59f0c2149a0689e481746103
+timeCreated: 1522839289
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Editor/Custom Editor/A4_Custom_Editor.cs
+  uploadId: 671475

@@ -1,0 +1,1369 @@
+fileFormatVersion: 2
+guid: 3d2065407258448e7af59bfe13e6bfa9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3528593212994555786
+    second: _C_Fantasy_Inside_A4_4_0
+  - first:
+      213: 4190453185755095033
+    second: _C_Fantasy_Inside_A4_4_00
+  - first:
+      213: -7674967038845449123
+    second: _C_Fantasy_Inside_A4_4_01
+  - first:
+      213: -5641303359385706918
+    second: _C_Fantasy_Inside_A4_4_02
+  - first:
+      213: -3203121850338333100
+    second: _C_Fantasy_Inside_A4_4_03
+  - first:
+      213: 1138111561890789178
+    second: _C_Fantasy_Inside_A4_4_04
+  - first:
+      213: 6893413523697190040
+    second: _C_Fantasy_Inside_A4_4_05
+  - first:
+      213: -5308602274233459513
+    second: _C_Fantasy_Inside_A4_4_06
+  - first:
+      213: 7116744760767266490
+    second: _C_Fantasy_Inside_A4_4_07
+  - first:
+      213: 5838367078525867205
+    second: _C_Fantasy_Inside_A4_4_08
+  - first:
+      213: 1512732138744159135
+    second: _C_Fantasy_Inside_A4_4_09
+  - first:
+      213: 7904549576255542257
+    second: _C_Fantasy_Inside_A4_4_10
+  - first:
+      213: -3333280745202383491
+    second: _C_Fantasy_Inside_A4_4_11
+  - first:
+      213: 1517540505903186282
+    second: _C_Fantasy_Inside_A4_4_12
+  - first:
+      213: -5841042854852827406
+    second: _C_Fantasy_Inside_A4_4_13
+  - first:
+      213: 6994763831872096659
+    second: _C_Fantasy_Inside_A4_4_14
+  - first:
+      213: -96397991884530236
+    second: _C_Fantasy_Inside_A4_4_15
+  - first:
+      213: 7558955592669208315
+    second: _C_Fantasy_Inside_A4_4_16
+  - first:
+      213: -4669599924544435776
+    second: _C_Fantasy_Inside_A4_4_17
+  - first:
+      213: 383593254592404759
+    second: _C_Fantasy_Inside_A4_4_18
+  - first:
+      213: 4800482868743727070
+    second: _C_Fantasy_Inside_A4_4_19
+  - first:
+      213: -7353331899800771263
+    second: _C_Fantasy_Inside_A4_4_20
+  - first:
+      213: 5595153208011631725
+    second: _C_Fantasy_Inside_A4_4_21
+  - first:
+      213: -199822173434795164
+    second: _C_Fantasy_Inside_A4_4_22
+  - first:
+      213: -1419029064381469662
+    second: _C_Fantasy_Inside_A4_4_23
+  - first:
+      213: -1492457904197223267
+    second: _C_Fantasy_Inside_A4_4_24
+  - first:
+      213: -8061346672748526248
+    second: _C_Fantasy_Inside_A4_4_25
+  - first:
+      213: 820532462950611478
+    second: _C_Fantasy_Inside_A4_4_26
+  - first:
+      213: 2409702665029678343
+    second: _C_Fantasy_Inside_A4_4_27
+  - first:
+      213: 3368635540800182170
+    second: _C_Fantasy_Inside_A4_4_28
+  - first:
+      213: 7099690874843074534
+    second: _C_Fantasy_Inside_A4_4_29
+  - first:
+      213: 7630615538885201053
+    second: _C_Fantasy_Inside_A4_4_30
+  - first:
+      213: 8718841180630392925
+    second: _C_Fantasy_Inside_A4_4_31
+  - first:
+      213: 2091933390463524468
+    second: _C_Fantasy_Inside_A4_4_32
+  - first:
+      213: -1078800504363406980
+    second: _C_Fantasy_Inside_A4_4_33
+  - first:
+      213: 3045927909647343003
+    second: _C_Fantasy_Inside_A4_4_34
+  - first:
+      213: -8062105255088124488
+    second: _C_Fantasy_Inside_A4_4_35
+  - first:
+      213: -7388623271919238003
+    second: _C_Fantasy_Inside_A4_4_36
+  - first:
+      213: 2715019638105833368
+    second: _C_Fantasy_Inside_A4_4_37
+  - first:
+      213: 5441981449949677458
+    second: _C_Fantasy_Inside_A4_4_38
+  - first:
+      213: 1931175433341958715
+    second: _C_Fantasy_Inside_A4_4_39
+  - first:
+      213: -4497414882872929568
+    second: _C_Fantasy_Inside_A4_4_40
+  - first:
+      213: -7171689103100688331
+    second: _C_Fantasy_Inside_A4_4_41
+  - first:
+      213: -4158642771733312320
+    second: _C_Fantasy_Inside_A4_4_42
+  - first:
+      213: 7494457956077067760
+    second: _C_Fantasy_Inside_A4_4_43
+  - first:
+      213: -3450497881953551746
+    second: _C_Fantasy_Inside_A4_4_44
+  - first:
+      213: 7624218464789203291
+    second: _C_Fantasy_Inside_A4_4_45
+  - first:
+      213: 8277675850943550419
+    second: _C_Fantasy_Inside_A4_4_46
+  - first:
+      213: 5867347485116452414
+    second: _C_Fantasy_Inside_A4_4_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff16d078fa772a30800000000000000
+      internalID: 4190453185755095033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_01
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c09c2542a0d7590800000000000000
+      internalID: -7674967038845449123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_02
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ed899cb7016b1b0800000000000000
+      internalID: -5641303359385706918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_03
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45eaa42e5a93c83d0800000000000000
+      internalID: -3203121850338333100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_04
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37f3418f626bcf00800000000000000
+      internalID: 1138111561890789178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_05
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89448d1b3135aaf50800000000000000
+      internalID: 6893413523697190040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_06
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ccdb769b5e0456b0800000000000000
+      internalID: -5308602274233459513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_07
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abeb7ae57a1c3c260800000000000000
+      internalID: 7116744760767266490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_08
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c49ed7cceb060150800000000000000
+      internalID: 5838367078525867205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_09
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b992a8ddd4ef410800000000000000
+      internalID: 1512732138744159135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f31d22a5f992bd60800000000000000
+      internalID: 7904549576255542257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75009d92decdb1d0800000000000000
+      internalID: -3333280745202383491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6140a2cc036f0510800000000000000
+      internalID: 1517540505903186282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6e9ae787270fea0800000000000000
+      internalID: -5841042854852827406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3998c7e25a4621160800000000000000
+      internalID: 6994763831872096659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 192
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd59a0898689aef0800000000000000
+      internalID: -96397991884530236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe100eff0ec6e860800000000000000
+      internalID: 7558955592669208315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c98656fb9f323fb0800000000000000
+      internalID: -4669599924544435776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d573e580cc25500800000000000000
+      internalID: 383593254592404759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed761dd2cbdbe9240800000000000000
+      internalID: 4800482868743727070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145a3d4c897b3f990800000000000000
+      internalID: -7353331899800771263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_21
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6cab63c23af5ad40800000000000000
+      internalID: 5595153208011631725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b2c2ebac61a3df0800000000000000
+      internalID: -199822173434795164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_23
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 144
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c669395989e4ce0800000000000000
+      internalID: -1419029064381469662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cb91a8179b94be0800000000000000
+      internalID: -1492457904197223267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_25
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8550c8779e7502090800000000000000
+      internalID: -8061346672748526248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61af8dc7ded136b00800000000000000
+      internalID: 820532462950611478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_27
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705f7638ecbf07120800000000000000
+      internalID: 2409702665029678343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9796233d2ccfbe20800000000000000
+      internalID: 3368635540800182170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_29
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef8a122c3b278260800000000000000
+      internalID: 7099690874843074534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c04d4676465e960800000000000000
+      internalID: 7630615538885201053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_31
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50a5800cdb8ff870800000000000000
+      internalID: 8718841180630392925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e5b58c55a080d10800000000000000
+      internalID: 2091933390463524468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7928e138a45701f0800000000000000
+      internalID: -1078800504363406980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d5af9bb4f454a20800000000000000
+      internalID: 3045927909647343003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_35
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd89a04cf5ad1090800000000000000
+      internalID: -8062105255088124488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84c112e746567990800000000000000
+      internalID: -7388623271919238003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_37
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ff18fd9ffada520800000000000000
+      internalID: 2715019638105833368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_38
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297048ebb4dc58b40800000000000000
+      internalID: 5441981449949677458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_39
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3afe4723d9ecca10800000000000000
+      internalID: 1931175433341958715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2ddca0ef8f591c0800000000000000
+      internalID: -4497414882872929568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_41
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 538c42a02ca097c90800000000000000
+      internalID: -7171689103100688331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc071bbe688946c0800000000000000
+      internalID: -4158642771733312320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_43
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdd210cdc9a10860800000000000000
+      internalID: 7494457956077067760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_44
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7abbe7357e5d10d0800000000000000
+      internalID: -3450497881953551746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_45
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b590cb38c4aaec960800000000000000
+      internalID: 7624218464789203291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_46
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3d155545630e270800000000000000
+      internalID: 8277675850943550419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _C_Fantasy_Inside_A4_4_47
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ec52083710d6150800000000000000
+      internalID: 5867347485116452414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      _C_Fantasy_Inside_A4_4_0: -3528593212994555786
+      _C_Fantasy_Inside_A4_4_00: 4190453185755095033
+      _C_Fantasy_Inside_A4_4_01: -7674967038845449123
+      _C_Fantasy_Inside_A4_4_02: -5641303359385706918
+      _C_Fantasy_Inside_A4_4_03: -3203121850338333100
+      _C_Fantasy_Inside_A4_4_04: 1138111561890789178
+      _C_Fantasy_Inside_A4_4_05: 6893413523697190040
+      _C_Fantasy_Inside_A4_4_06: -5308602274233459513
+      _C_Fantasy_Inside_A4_4_07: 7116744760767266490
+      _C_Fantasy_Inside_A4_4_08: 5838367078525867205
+      _C_Fantasy_Inside_A4_4_09: 1512732138744159135
+      _C_Fantasy_Inside_A4_4_10: 7904549576255542257
+      _C_Fantasy_Inside_A4_4_11: -3333280745202383491
+      _C_Fantasy_Inside_A4_4_12: 1517540505903186282
+      _C_Fantasy_Inside_A4_4_13: -5841042854852827406
+      _C_Fantasy_Inside_A4_4_14: 6994763831872096659
+      _C_Fantasy_Inside_A4_4_15: -96397991884530236
+      _C_Fantasy_Inside_A4_4_16: 7558955592669208315
+      _C_Fantasy_Inside_A4_4_17: -4669599924544435776
+      _C_Fantasy_Inside_A4_4_18: 383593254592404759
+      _C_Fantasy_Inside_A4_4_19: 4800482868743727070
+      _C_Fantasy_Inside_A4_4_20: -7353331899800771263
+      _C_Fantasy_Inside_A4_4_21: 5595153208011631725
+      _C_Fantasy_Inside_A4_4_22: -199822173434795164
+      _C_Fantasy_Inside_A4_4_23: -1419029064381469662
+      _C_Fantasy_Inside_A4_4_24: -1492457904197223267
+      _C_Fantasy_Inside_A4_4_25: -8061346672748526248
+      _C_Fantasy_Inside_A4_4_26: 820532462950611478
+      _C_Fantasy_Inside_A4_4_27: 2409702665029678343
+      _C_Fantasy_Inside_A4_4_28: 3368635540800182170
+      _C_Fantasy_Inside_A4_4_29: 7099690874843074534
+      _C_Fantasy_Inside_A4_4_30: 7630615538885201053
+      _C_Fantasy_Inside_A4_4_31: 8718841180630392925
+      _C_Fantasy_Inside_A4_4_32: 2091933390463524468
+      _C_Fantasy_Inside_A4_4_33: -1078800504363406980
+      _C_Fantasy_Inside_A4_4_34: 3045927909647343003
+      _C_Fantasy_Inside_A4_4_35: -8062105255088124488
+      _C_Fantasy_Inside_A4_4_36: -7388623271919238003
+      _C_Fantasy_Inside_A4_4_37: 2715019638105833368
+      _C_Fantasy_Inside_A4_4_38: 5441981449949677458
+      _C_Fantasy_Inside_A4_4_39: 1931175433341958715
+      _C_Fantasy_Inside_A4_4_40: -4497414882872929568
+      _C_Fantasy_Inside_A4_4_41: -7171689103100688331
+      _C_Fantasy_Inside_A4_4_42: -4158642771733312320
+      _C_Fantasy_Inside_A4_4_43: 7494457956077067760
+      _C_Fantasy_Inside_A4_4_44: -3450497881953551746
+      _C_Fantasy_Inside_A4_4_45: 7624218464789203291
+      _C_Fantasy_Inside_A4_4_46: 8277675850943550419
+      _C_Fantasy_Inside_A4_4_47: 5867347485116452414
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

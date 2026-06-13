@@ -1,0 +1,74 @@
+# Unity generated folders
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+
+# Unity-generated project files
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity asset import noise
+*.meta
+*.unitypackage
+*.assetbundle
+
+# Build outputs and player data
+*.apk
+*.aab
+*.ipa
+*.app
+*.exe
+*.dll
+*.dylib
+*.so
+*.bundle
+*.xcodeproj/
+*.xcworkspace/
+*_Data/
+
+# IDE and OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs, diagnostics, and crash output
+*.log
+*.stackdump
+sysinfo.txt
+crashlytics-build.properties
+
+# Local databases and generated save data
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.sqlite-shm
+*.sqlite-wal
+
+# Large source-control or package-manager caches
+.git/
+.cache/
+.upm-cache/
+node_modules/

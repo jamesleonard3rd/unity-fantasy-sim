@@ -1,0 +1,22 @@
+{
+  "name": "FantasySim.Editor",
+  "rootNamespace": "FantasySim.Editor",
+  "references": [
+    "FantasySim.Core",
+    "FantasySim.Content",
+    "FantasySim.Persistence",
+    "FantasySim.Simulation",
+    "FantasySim.Session"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

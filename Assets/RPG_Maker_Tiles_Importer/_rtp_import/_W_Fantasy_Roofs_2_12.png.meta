@@ -1,0 +1,553 @@
+fileFormatVersion: 2
+guid: e28238850f011407e85ba0461fac70d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2354032508041391532
+    second: _W_Fantasy_Roofs_2_12_0
+  - first:
+      213: 8662590472246921106
+    second: _W_Fantasy_Roofs_2_12_1
+  - first:
+      213: 3126050070200792669
+    second: _W_Fantasy_Roofs_2_12_2
+  - first:
+      213: -5061018867998713541
+    second: _W_Fantasy_Roofs_2_12_3
+  - first:
+      213: 2964236784858998720
+    second: _W_Fantasy_Roofs_2_12_4
+  - first:
+      213: -2525117033317869838
+    second: _W_Fantasy_Roofs_2_12_00
+  - first:
+      213: -4816179240994266647
+    second: _W_Fantasy_Roofs_2_12_01
+  - first:
+      213: 693506218248711731
+    second: _W_Fantasy_Roofs_2_12_02
+  - first:
+      213: 2979453130282565764
+    second: _W_Fantasy_Roofs_2_12_03
+  - first:
+      213: 3710756478051808943
+    second: _W_Fantasy_Roofs_2_12_04
+  - first:
+      213: -467852321300863023
+    second: _W_Fantasy_Roofs_2_12_05
+  - first:
+      213: 2839063517835399439
+    second: _W_Fantasy_Roofs_2_12_06
+  - first:
+      213: 1236771251361844793
+    second: _W_Fantasy_Roofs_2_12_07
+  - first:
+      213: 2618561901603433404
+    second: _W_Fantasy_Roofs_2_12_08
+  - first:
+      213: 1130569476116915924
+    second: _W_Fantasy_Roofs_2_12_09
+  - first:
+      213: 6495599481377327084
+    second: _W_Fantasy_Roofs_2_12_10
+  - first:
+      213: -1053900419604888138
+    second: _W_Fantasy_Roofs_2_12_11
+  - first:
+      213: 2976807459541302486
+    second: _W_Fantasy_Roofs_2_12_12
+  - first:
+      213: 3766155314723390276
+    second: _W_Fantasy_Roofs_2_12_13
+  - first:
+      213: -4327984859675472387
+    second: _W_Fantasy_Roofs_2_12_14
+  - first:
+      213: 1032143085425169773
+    second: _W_Fantasy_Roofs_2_12_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 96
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6dcc4df6bf4fcd0800000000000000
+      internalID: -2525117033317869838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_01
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e12ded5f7e792db0800000000000000
+      internalID: -4816179240994266647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_02
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e2d3c2b34df9900800000000000000
+      internalID: 693506218248711731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_03
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4800b6f06d4295920800000000000000
+      internalID: 2979453130282565764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_04
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6f14a3b514f7330800000000000000
+      internalID: 3710756478051808943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_05
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d72585eacad189f0800000000000000
+      internalID: -467852321300863023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_06
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01995b3a31666720800000000000000
+      internalID: 2839063517835399439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_07
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e86d186e4e92110800000000000000
+      internalID: 1236771251361844793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_08
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbba17ffc20075420800000000000000
+      internalID: 2618561901603433404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_09
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d629d1d2f690bf00800000000000000
+      internalID: 1130569476116915924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce705ba2051052a50800000000000000
+      internalID: 6495599481377327084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5c0d4f62bcf51f0800000000000000
+      internalID: -1053900419604888138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc31b6dc9ebf4920800000000000000
+      internalID: 2976807459541302486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44389070e42144430800000000000000
+      internalID: 3766155314723390276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd46c563b8efe3c0800000000000000
+      internalID: -4327984859675472387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _W_Fantasy_Roofs_2_12_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65942ceaa8e25e00800000000000000
+      internalID: 1032143085425169773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      _W_Fantasy_Roofs_2_12_0: 2354032508041391532
+      _W_Fantasy_Roofs_2_12_00: -2525117033317869838
+      _W_Fantasy_Roofs_2_12_01: -4816179240994266647
+      _W_Fantasy_Roofs_2_12_02: 693506218248711731
+      _W_Fantasy_Roofs_2_12_03: 2979453130282565764
+      _W_Fantasy_Roofs_2_12_04: 3710756478051808943
+      _W_Fantasy_Roofs_2_12_05: -467852321300863023
+      _W_Fantasy_Roofs_2_12_06: 2839063517835399439
+      _W_Fantasy_Roofs_2_12_07: 1236771251361844793
+      _W_Fantasy_Roofs_2_12_08: 2618561901603433404
+      _W_Fantasy_Roofs_2_12_09: 1130569476116915924
+      _W_Fantasy_Roofs_2_12_1: 8662590472246921106
+      _W_Fantasy_Roofs_2_12_10: 6495599481377327084
+      _W_Fantasy_Roofs_2_12_11: -1053900419604888138
+      _W_Fantasy_Roofs_2_12_12: 2976807459541302486
+      _W_Fantasy_Roofs_2_12_13: 3766155314723390276
+      _W_Fantasy_Roofs_2_12_14: -4327984859675472387
+      _W_Fantasy_Roofs_2_12_15: 1032143085425169773
+      _W_Fantasy_Roofs_2_12_2: 3126050070200792669
+      _W_Fantasy_Roofs_2_12_3: -5061018867998713541
+      _W_Fantasy_Roofs_2_12_4: 2964236784858998720
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

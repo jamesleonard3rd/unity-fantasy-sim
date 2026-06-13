@@ -1,0 +1,18 @@
+{
+  "name": "FantasySim.Persistence",
+  "rootNamespace": "FantasySim.Persistence",
+  "references": [
+    "FantasySim.Core",
+    "FantasySim.Content",
+    "Gilzoide.SqliteNet"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

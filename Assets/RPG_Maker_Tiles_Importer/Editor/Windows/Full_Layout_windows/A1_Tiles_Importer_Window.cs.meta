@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: ccd2e77bd33b4d94bacffc83eec69022
+timeCreated: 1508237703
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Editor/Windows/Full_Layout_windows/A1_Tiles_Importer_Window.cs
+  uploadId: 671475

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 80e1cf070f879bc4ca9bdc3de17535df
+timeCreated: 1522833125
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Editor/Windows/Single_tile_windows/A1_Single_Twister_Importer.cs
+  uploadId: 671475

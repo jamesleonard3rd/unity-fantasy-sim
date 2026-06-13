@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 693358c0fd3b5da46a6653f946396011
+timeCreated: 1511685051
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 103504
+  packageName: Autotile Importer for RPG Maker-Compatible Tilesets image
+  packageVersion: 2.2
+  assetPath: Assets/RPG_Maker_Tiles_Importer/Editor/Utility/Tiles_A1_WOLF_Utility.cs
+  uploadId: 671475
