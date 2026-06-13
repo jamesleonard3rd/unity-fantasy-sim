@@ -87,7 +87,7 @@ namespace FantasySim.Persistence.Migrations
                         id INTEGER PRIMARY KEY,
                         subject_entity_id INTEGER NOT NULL,
                         target_entity_id INTEGER NOT NULL,
-                        kind TEXT NOT NULL,
+                        type TEXT NOT NULL,
                         value INTEGER NOT NULL,
                         decay_per_tick REAL NOT NULL DEFAULT 0,
                         expires_game_tick INTEGER NULL,
@@ -98,7 +98,7 @@ namespace FantasySim.Persistence.Migrations
                     @"CREATE TABLE IF NOT EXISTS world_events (
                         id INTEGER PRIMARY KEY,
                         region_id INTEGER NULL,
-                        kind TEXT NOT NULL,
+                        type TEXT NOT NULL,
                         subject_entity_id INTEGER NULL,
                         target_entity_id INTEGER NULL,
                         significance INTEGER NOT NULL,

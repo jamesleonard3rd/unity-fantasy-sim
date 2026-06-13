@@ -7,9 +7,17 @@ namespace FantasySim.Core.Results
         Error
     }
 
-    public readonly record struct ValidationMessage(
-        ValidationSeverity Severity,
-        string Code,
-        string Message
-    );
+    public readonly struct ValidationMessage
+    {
+        public ValidationMessage(ValidationSeverity severity, string code, string message)
+        {
+            Severity = severity;
+            Code = code;
+            Message = message;
+        }
+
+        public ValidationSeverity Severity { get; }
+        public string Code { get; }
+        public string Message { get; }
+    }
 }

@@ -1,7 +1,14 @@
 namespace FantasySim.Core.Time
 {
-    public readonly record struct GameTick(long Value)
+    public readonly struct GameTick
     {
+        public GameTick(long value)
+        {
+            Value = value;
+        }
+
+        public long Value { get; }
+
         public override string ToString()
         {
             return Value.ToString();

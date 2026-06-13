@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Failed(Child)" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.1142687">
+  <test-suite type="TestSuite" id="1023" name="RTSPrototype" fullname="RTSPrototype" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.114269" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1007" name="FantasySim.EditMode.Tests.dll" fullname="/Users/james/RTSPrototype/Library/ScriptAssemblies/FantasySim.EditMode.Tests.dll" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.106830" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="25286" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1008" name="FantasySim" fullname="FantasySim" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.106143" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1009" name="Tests" fullname="FantasySim.Tests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.105828" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1010" name="EditMode" fullname="FantasySim.Tests.EditMode" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.105577" total="4" passed="3" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1012" name="Content" fullname="FantasySim.Tests.EditMode.Content" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.028146" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1005" name="ContentKeyValidatorTests" fullname="FantasySim.Tests.EditMode.Content.ContentKeyValidatorTests" classname="FantasySim.Tests.EditMode.Content.ContentKeyValidatorTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.027308" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1006" name="ValidateUniqueKeysReportsDuplicateKeys" fullname="FantasySim.Tests.EditMode.Content.ContentKeyValidatorTests.ValidateUniqueKeysReportsDuplicateKeys" methodname="ValidateUniqueKeysReportsDuplicateKeys" classname="FantasySim.Tests.EditMode.Content.ContentKeyValidatorTests" runstate="Runnable" seed="1555421838" result="Failed" label="Error" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.015497" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[System.ArgumentException : Property Count was not found
+Parameter name: name]]></message>
+                    <stack-trace><![CDATA[  at NUnit.Framework.Constraints.PropertyConstraint.ApplyTo (System.Object actual) [0x0004a] in <f577cd9686154d6ab10efd7e65e64366>:0 
+  at NUnit.Framework.Assert.That[TActual] (TActual actual, NUnit.Framework.Constraints.IResolveConstraint expression, System.String message, System.Object[] args) [0x0000b] in <f577cd9686154d6ab10efd7e65e64366>:0 
+  at NUnit.Framework.Assert.That[TActual] (TActual actual, NUnit.Framework.Constraints.IResolveConstraint expression) [0x00000] in <f577cd9686154d6ab10efd7e65e64366>:0 
+  at FantasySim.Tests.EditMode.Content.ContentKeyValidatorTests.ValidateUniqueKeysReportsDuplicateKeys () [0x0007b] in /Users/james/RTSPrototype/Assets/FantasySim/Tests/EditMode/Content/ContentKeyValidatorTests.cs:25 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <67e9686a86934ae8b0ef7cc81c6b4608>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestSuite" id="1011" name="Persistence" fullname="FantasySim.Tests.EditMode.Persistence" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.077014" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1001" name="DatabaseInitializerTests" fullname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests" classname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.070621" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1004" name="ConnectionFactoryEnablesForeignKeys" fullname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests.ConnectionFactoryEnablesForeignKeys" methodname="ConnectionFactoryEnablesForeignKeys" classname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests" runstate="Runnable" seed="1562074746" result="Passed" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.055936" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1002" name="InitializeCreatesRequiredTables" fullname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests.InitializeCreatesRequiredTables" methodname="InitializeCreatesRequiredTables" classname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests" runstate="Runnable" seed="291691443" result="Passed" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.005300" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1003" name="InitializeIsIdempotent" fullname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests.InitializeIsIdempotent" methodname="InitializeIsIdempotent" classname="FantasySim.Tests.EditMode.Persistence.DatabaseInitializerTests" runstate="Runnable" seed="560069056" result="Passed" start-time="2026-06-13 04:39:02Z" end-time="2026-06-13 04:39:02Z" duration="0.007495" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/james/Library/Application Support/DefaultCompany/RTSPrototype/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

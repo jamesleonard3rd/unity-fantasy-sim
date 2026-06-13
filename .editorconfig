@@ -1,0 +1,4 @@
+root = true
+
+[Assets/**/*.cs]
+dotnet_diagnostic.IDE0130.severity = none

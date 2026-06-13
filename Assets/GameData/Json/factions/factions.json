@@ -1,0 +1,88 @@
+{
+  "factions": [
+    {
+      "name": "The White Tower",
+      "type": "guild",
+      "description": "Independent mage tower of the northern reaches.",
+      "parent": null
+    },
+    {
+      "name": "The Ember Court",
+      "type": "generic",
+      "description": "Ruling nobility of the southern realm.",
+      "parent": "The Aurelian Empire"
+    },
+    {
+      "name": "The Flame Keepers",
+      "type": "order",
+      "description": "Elite knights of the Ember Court.",
+      "parent": "The Ember Court"
+    },
+    {
+      "name": "The Red Tower",
+      "type": "guild",
+      "description": "Mage tower of the Ember Court.",
+      "parent": "The Ember Court"
+    },
+    {
+      "name": "Ember Academy",
+      "type": "school",
+      "description": "Prestigious academy for nobles and the wealthy at the Ember Court, specializing in fire magic.",
+      "parent": "The Ember Court"
+    },
+    {
+      "name": "Celestria University",
+      "type": "school",
+      "description": "Most prestigious university for mages on the continent.",
+      "parent": null
+    },
+    {
+      "name": "House Valemont",
+      "type": "house",
+      "description": "Valiant and noble house known for producing generals, marshals, and military leaders.",
+      "parent": null
+    },
+    {
+      "name": "House Belovar",
+      "type": "house",
+      "description": "Noble house bound to an ancient arcane heritage through the bloodline of archmage Belovar the Great.",
+      "parent": null
+    },
+    {
+      "name": "House Rhaen",
+      "type": "house",
+      "description": "Noble house with ancient ties to infernos or dragonkind, known for flame resistance and burning warcraft.",
+      "parent": "The Ember Court"
+    },
+    {
+      "name": "House Eidra",
+      "type": "house",
+      "description": "Noble house tracing its lineage to Eidros the First, remembered for rare manifestations of radiant light magic.",
+      "parent": null
+    },
+    {
+      "name": "House Vaelor",
+      "type": "house",
+      "description": "From Ash, Dominion.",
+      "parent": "The Aurelian Empire"
+    },
+    {
+      "name": "House Drenhal",
+      "type": "house",
+      "description": "Sigil is the black wolf. Warriors, mysterious.",
+      "parent": null
+    },
+    {
+      "name": "House Corvain",
+      "type": "house",
+      "description": "In time, the Tide claims all.",
+      "parent": null
+    },
+    {
+      "name": "The Aurelian Empire",
+      "type": "empire",
+      "description": "",
+      "parent": null
+    }
+  ]
+}

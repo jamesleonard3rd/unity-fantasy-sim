@@ -22,7 +22,7 @@ namespace FantasySim.Tests.EditMode.Content
             );
 
             Assert.That(result.IsValid, Is.False);
-            Assert.That(result.Messages, Has.Count.EqualTo(1));
+            Assert.That(result.Messages.Count, Is.EqualTo(1));
             Assert.That(result.Messages[0].Code, Is.EqualTo("content.duplicate_key"));
         }
     }
