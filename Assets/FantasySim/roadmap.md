@@ -31,18 +31,22 @@ Implemented:
   validation result primitives.
 - `Assets/FantasySim/Runtime/Content/` contains the first static content
   boundary: definition DTOs, JSON loaders, key normalization and validation
-  helpers, `ContentCatalog`, and `ContentCatalogBuilder`.
+  helpers, `ContentCatalog`, `ContentCatalogBuilder`, and validation report
+  formatting for editor tooling.
 - `Assets/FantasySim/Runtime/Persistence/` owns SQLite path resolution,
   connection setup, database initialization, migration execution, and database
-  status reporting.
+  status reporting. It can now generate the first starter-world save-state rows
+  from a validated `ContentCatalog`.
 - `Assets/FantasySim/Runtime/Simulation/` and
   `Assets/FantasySim/Runtime/Session/` exist as assembly boundaries for later
   work, but intentionally do not contain gameplay systems yet.
 - `Assets/FantasySim/Editor/DatabaseTools/` exposes editor menu items for
-  rebuilding and inspecting the development database.
+  validating game data, rebuilding the development database, generating the
+  starter world, and inspecting database status.
 - `Assets/FantasySim/Tests/EditMode/` contains initial foundation tests for
   database initialization, migration idempotency, foreign keys, content key
-  validation, JSON loading, reference validation, and catalog creation.
+  validation, JSON loading, reference validation, catalog creation, validation
+  report formatting, and starter-world generation/idempotency.
 - `Assets/DB.cs` is now only a temporary bootstrap component that delegates to
   `DatabaseInitializer`.
 
@@ -57,19 +61,35 @@ Current verification:
 - Static JSON content has been moved into `Assets/GameData/Json/`.
 - JSON loaders now parse factions, races, stats, traits, regions, and entity
   templates into normalized definition DTOs.
-- CLI EditMode test execution was attempted, but Unity batchmode licensing
-  failed before producing test results. Re-run from an authenticated Unity
-  Editor/Test Runner session.
+- Static definitions are intentionally not mirrored into SQLite yet. JSON plus
+  `ContentCatalog` remain the canonical immutable content source; SQLite stores
+  generated save-state rows and stable definition keys.
+- `Fantasy Sim/Validate Game Data` builds the catalog and logs counts plus
+  actionable validation messages.
+- `Fantasy Sim/Database/Generate Starter World` writes the initial clock,
+  regions, starter simulation partition, entity rows, positions, and default
+  needs into the development database when it is empty.
+- Minimal runtime state DTOs now represent a loaded partition in memory.
+- `StarterWorldReadRepository` loads the generated `starter_world` partition,
+  including regions, entities, positions, needs, and clock context.
+- The development starter world has been generated from the editor menu, and
+  database status reports nonzero counts for generated world tables.
+- CLI EditMode test execution for the loaded-partition tests was attempted, but
+  Unity batchmode was blocked because another Unity instance has this project
+  open. Re-run from the Unity Editor/Test Runner or after closing the open
+  Editor instance.
 
 Next immediate milestone:
 
-1. Run the content loader and catalog EditMode tests from an authenticated Unity
-   Editor session and fix any surfaced data issues in `Assets/GameData/Json/`.
-2. Add an editor menu item for `Fantasy Sim/Validate Game Data` that runs
-   `ContentCatalogBuilder` and logs actionable validation messages.
-3. Decide whether any static definitions should be mirrored into SQLite for
-   debug tooling before starter-world generation.
-4. Implement starter world generation from the validated `ContentCatalog`.
+1. Add a tiny pure simulation pipeline with one `RegionHeartbeatSystem` that
+   appends a low-significance `region.tick` event to the delta.
+2. Add a SQLite write repository that persists heartbeat events to
+   `world_events` and advances `world_clock.game_tick`.
+3. Add an editor menu item such as `Fantasy Sim/Simulation/Tick Starter World`
+   that loads the starter partition, runs one heartbeat tick, writes the delta,
+   and logs the tick/event count.
+4. Cover the heartbeat system and write path with focused EditMode
+   tests before adding more simulation systems.
 
 ---
 

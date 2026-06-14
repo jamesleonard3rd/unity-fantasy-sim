@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using FantasySim.Content.Catalog;
 using FantasySim.Persistence.Migrations;
 using SQLite;
 
@@ -25,12 +27,14 @@ namespace FantasySim.Persistence.SQLite
         private readonly DatabasePathProvider pathProvider;
         private readonly SqliteConnectionFactory connectionFactory;
         private readonly MigrationRunner migrationRunner;
+        private readonly StarterWorldGenerator starterWorldGenerator;
 
         public DatabaseInitializer(DatabasePathProvider pathProvider = null)
         {
             this.pathProvider = pathProvider ?? DatabasePathProvider.ForDefaultGameDatabase();
             connectionFactory = new SqliteConnectionFactory(this.pathProvider);
             migrationRunner = new MigrationRunner();
+            starterWorldGenerator = new StarterWorldGenerator();
         }
 
         public string DatabasePath => pathProvider.DatabasePath;
@@ -45,6 +49,26 @@ namespace FantasySim.Persistence.SQLite
         {
             DeleteDatabaseFiles();
             Initialize();
+        }
+
+        public StarterWorldGenerationResult GenerateStarterWorldIfEmpty(ContentCatalogBuildResult catalogBuildResult = null)
+        {
+            Initialize();
+
+            ContentCatalogBuildResult result = catalogBuildResult ?? new ContentCatalogBuilder().Build();
+            if (!result.IsValid)
+            {
+                string validationMessages = string.Join(
+                    "\n",
+                    result.ValidationResult.Messages.Select(ContentCatalogValidationReport.FormatMessage)
+                );
+                throw new System.InvalidOperationException(
+                    $"Cannot generate starter world from invalid game data:\n{validationMessages}"
+                );
+            }
+
+            using SQLiteConnection connection = connectionFactory.OpenConnection();
+            return starterWorldGenerator.GenerateIfEmpty(connection, result.Catalog);
         }
 
         public DatabaseStatus GetStatus()

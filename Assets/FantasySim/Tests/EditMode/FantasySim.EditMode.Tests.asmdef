@@ -5,6 +5,7 @@
     "FantasySim.Core",
     "FantasySim.Content",
     "FantasySim.Persistence",
+    "FantasySim.Simulation",
     "Gilzoide.SqliteNet"
   ],
   "includePlatforms": [

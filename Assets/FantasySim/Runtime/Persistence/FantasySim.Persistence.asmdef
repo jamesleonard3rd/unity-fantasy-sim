@@ -4,6 +4,7 @@
   "references": [
     "FantasySim.Core",
     "FantasySim.Content",
+    "FantasySim.Simulation",
     "Gilzoide.SqliteNet"
   ],
   "includePlatforms": [],
