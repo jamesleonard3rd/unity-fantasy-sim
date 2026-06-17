@@ -60,7 +60,9 @@ namespace FantasySim.Tests.EditMode.Simulation
         public void PipelineRunsRelationshipDynamicsBeforeHeartbeatAndMergesRegionDelta()
         {
             var key = new RelationshipKey(new EntityId(10), new EntityId(20));
-            var pipeline = new StarterWorldSimulationPipeline();
+            var pipeline = new StarterWorldSimulationPipeline(
+                pairwiseInteractionSystem: new PairwiseInteractionSystem(maxInteractionsPerEntity: 0)
+            );
             var state = new LoadedPartitionState(
                 new TickContext(new GameTick(3), 24, 1, "starter_world", "Starter World", 180f, new GameTick(0)),
                 new[] { CreateRegion(1) },

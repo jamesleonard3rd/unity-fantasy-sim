@@ -3,6 +3,7 @@
   "rootNamespace": "FantasySim.Session",
   "references": [
     "FantasySim.Core",
+    "FantasySim.Content",
     "FantasySim.Persistence",
     "FantasySim.Simulation"
   ],

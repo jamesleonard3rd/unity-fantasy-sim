@@ -90,4 +90,23 @@ namespace FantasySim.Content.Definitions
         public string factionKey;
         public string rank;
     }
+
+    [Serializable]
+    public sealed class EntityRelationshipDefinition
+    {
+        public string fromKey;
+        public string toKey;
+        public string type;
+        public int opinion;
+    }
+
+    [Serializable]
+    public sealed class GoalDefinition
+    {
+        public string key;
+        public string displayName;
+        public string completionMode;
+        public string[] requires;
+        public string rawJson;
+    }
 }

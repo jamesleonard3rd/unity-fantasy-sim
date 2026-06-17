@@ -203,6 +203,56 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(assertionConnection.ExecuteScalar<int>("SELECT COUNT(*) FROM relationship_terms WHERE id = ?", termId), Is.EqualTo(0));
         }
 
+        [Test]
+        public void WritePartitionTickPersistsChangedEntityGoalRowsOnly()
+        {
+            var initializer = new DatabaseInitializer(pathProvider);
+            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
+            long changedGoalId;
+            long unchangedGoalId;
+            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
+            {
+                long heroId = connection.ExecuteScalar<long>("SELECT id FROM entities WHERE template_key = ?", "hero");
+                changedGoalId = InsertGoal(connection, heroId, "join_faction", 0.0, "inactive");
+                unchangedGoalId = InsertGoal(connection, heroId, "travel_to_region", 10.0, "inactive");
+            }
+            var readRepository = new StarterWorldReadRepository(pathProvider);
+            LoadedPartitionState state = readRepository.LoadStarterWorld();
+            RegionState region = state.Regions.Single(regionState => regionState.Key == "child_region");
+            EntityState hero = state.Entities.Single(entity => entity.TemplateKey == "hero");
+            var delta = new PartitionTickDelta(
+                state.TickContext.CurrentTick,
+                new GameTick(1),
+                new[]
+                {
+                    new RegionStateDelta(
+                        region.Id,
+                        new GameTick(1),
+                        new PendingWorldEvent[0],
+                        null,
+                        null,
+                        null,
+                        new[]
+                        {
+                            new EntityGoalState(changedGoalId, hero.Id, "join_faction", 60, "active", "{}")
+                        },
+                        null
+                    )
+                }
+            );
+            var writeRepository = new RegionStateWriteRepository(pathProvider);
+
+            RegionStateWriteResult result = writeRepository.WritePartitionTick(state, delta);
+
+            Assert.That(result.EntityGoalsUpdated, Is.EqualTo(1));
+            Assert.That(result.EntityGoalsDeleted, Is.EqualTo(0));
+            using SQLiteConnection assertionConnection = new SqliteConnectionFactory(pathProvider).OpenConnection();
+            Assert.That(assertionConnection.ExecuteScalar<string>("SELECT state FROM entity_goals WHERE id = ?", changedGoalId), Is.EqualTo("active"));
+            Assert.That(assertionConnection.ExecuteScalar<int>("SELECT priority FROM entity_goals WHERE id = ?", changedGoalId), Is.EqualTo(60));
+            Assert.That(assertionConnection.ExecuteScalar<string>("SELECT state FROM entity_goals WHERE id = ?", unchangedGoalId), Is.EqualTo("inactive"));
+            Assert.That(assertionConnection.ExecuteScalar<int>("SELECT priority FROM entity_goals WHERE id = ?", unchangedGoalId), Is.EqualTo(10));
+        }
+
         private static ContentCatalogBuildResult CreateValidBuildResult()
         {
             var regions = new Dictionary<string, RegionDefinition>
@@ -338,6 +388,26 @@ namespace FantasySim.Tests.EditMode.Persistence
                 decayPerTick,
                 expiresTick.HasValue ? (object)expiresTick.Value : null,
                 payloadJson
+            );
+            return connection.ExecuteScalar<long>("SELECT last_insert_rowid()");
+        }
+
+        private static long InsertGoal(
+            SQLiteConnection connection,
+            long entityId,
+            string goalKey,
+            double priority,
+            string state
+        )
+        {
+            connection.Execute(
+                @"INSERT INTO entity_goals (entity_id, goal_key, priority, state, payload_json)
+                  VALUES (?, ?, ?, ?, ?)",
+                entityId,
+                goalKey,
+                priority,
+                state,
+                "{}"
             );
             return connection.ExecuteScalar<long>("SELECT last_insert_rowid()");
         }

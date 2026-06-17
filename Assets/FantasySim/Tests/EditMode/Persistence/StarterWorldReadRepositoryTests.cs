@@ -215,6 +215,47 @@ namespace FantasySim.Tests.EditMode.Persistence
         }
 
         [Test]
+        public void LoadStarterWorldHydratesEntityGoalsForLoadedEntities()
+        {
+            var initializer = new DatabaseInitializer(pathProvider);
+            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
+            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
+            {
+                long heroId = connection.ExecuteScalar<long>("SELECT id FROM entities WHERE template_key = ?", "hero");
+                connection.Execute(
+                    @"INSERT INTO entity_goals (entity_id, goal_key, priority, state, payload_json)
+                      VALUES (?, ?, ?, ?, ?)",
+                    heroId,
+                    "join_faction",
+                    42.0,
+                    "active",
+                    "{\"source\":\"test\"}"
+                );
+                connection.Execute(
+                    @"INSERT INTO entity_goals (entity_id, goal_key, priority, state, payload_json)
+                      VALUES (?, ?, ?, ?, ?)",
+                    heroId,
+                    "travel_to_region",
+                    7.0,
+                    "inactive",
+                    "{}"
+                );
+            }
+            var repository = new StarterWorldReadRepository(pathProvider);
+
+            LoadedPartitionState state = repository.LoadStarterWorld();
+
+            Assert.That(state.EntityGoals, Has.Count.EqualTo(2));
+            long expectedEntityId = state.Entities.Single(entity => entity.TemplateKey == "hero").Id.Value;
+            Assert.That(state.EntityGoals.Select(goal => goal.EntityId.Value), Is.All.EqualTo(expectedEntityId));
+
+            EntityGoalState activeGoal = state.EntityGoals.Single(goal => goal.State == "active");
+            Assert.That(activeGoal.GoalKey, Is.EqualTo("join_faction"));
+            Assert.That(activeGoal.Priority, Is.EqualTo(42.0));
+            Assert.That(activeGoal.PayloadJson, Is.EqualTo("{\"source\":\"test\"}"));
+        }
+
+        [Test]
         public void LoadStarterWorldFiltersRelationshipsWhenEitherEntityIsOutsidePartition()
         {
             var initializer = new DatabaseInitializer(pathProvider);

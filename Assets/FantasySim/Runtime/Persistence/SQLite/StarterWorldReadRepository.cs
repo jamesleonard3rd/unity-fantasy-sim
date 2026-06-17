@@ -34,14 +34,25 @@ namespace FantasySim.Persistence.SQLite
             }
 
             using SQLiteConnection connection = connectionFactory.OpenConnection();
-
             ClockRow clock = LoadClock(connection);
-            PartitionRow partition = LoadPartitionRow(connection, partitionKey);
+            return LoadPartition(connection, clock, LoadPartitionRow(connection, partitionKey));
+        }
+
+        public LoadedPartitionState LoadPartition(long partitionId)
+        {
+            using SQLiteConnection connection = connectionFactory.OpenConnection();
+            ClockRow clock = LoadClock(connection);
+            return LoadPartition(connection, clock, LoadPartitionRowById(connection, partitionId));
+        }
+
+        private static LoadedPartitionState LoadPartition(SQLiteConnection connection, ClockRow clock, PartitionRow partition)
+        {
             List<RegionState> regions = LoadRegions(connection, partition.Id);
             EnsureEntitiesHavePositions(connection);
             List<EntityState> entities = LoadEntities(connection, regions);
             List<RelationshipState> relationships = LoadRelationships(connection, entities);
             List<RelationshipTermState> relationshipTerms = LoadRelationshipTerms(connection, entities);
+            List<EntityGoalState> entityGoals = LoadEntityGoals(connection, entities);
 
             var tickContext = new TickContext(
                 new GameTick(clock.GameTick),
@@ -53,7 +64,7 @@ namespace FantasySim.Persistence.SQLite
                 new GameTick(partition.LastTickGameTick)
             );
 
-            return new LoadedPartitionState(tickContext, regions, entities, relationships, relationshipTerms);
+            return new LoadedPartitionState(tickContext, regions, entities, relationships, relationshipTerms, entityGoals);
         }
 
         private static ClockRow LoadClock(SQLiteConnection connection)
@@ -89,6 +100,27 @@ namespace FantasySim.Persistence.SQLite
             if (partition == null)
             {
                 throw new InvalidOperationException($"Cannot load partition '{partitionKey}' because it is missing.");
+            }
+
+            return partition;
+        }
+
+        private static PartitionRow LoadPartitionRowById(SQLiteConnection connection, long partitionId)
+        {
+            PartitionRow partition = connection.Query<PartitionRow>(
+                @"SELECT id AS Id,
+                         key AS Key,
+                         display_name AS DisplayName,
+                         tick_interval_seconds AS TickIntervalSeconds,
+                         last_tick_game_tick AS LastTickGameTick
+                  FROM simulation_partitions
+                  WHERE id = ?",
+                partitionId
+            ).FirstOrDefault();
+
+            if (partition == null)
+            {
+                throw new InvalidOperationException($"Cannot load partition {partitionId} because it is missing.");
             }
 
             return partition;
@@ -278,6 +310,39 @@ namespace FantasySim.Persistence.SQLite
             )).ToList();
         }
 
+        private static List<EntityGoalState> LoadEntityGoals(SQLiteConnection connection, IReadOnlyList<EntityState> entities)
+        {
+            if (entities.Count == 0)
+            {
+                return new List<EntityGoalState>();
+            }
+
+            string entityPlaceholders = string.Join(", ", entities.Select(_ => "?"));
+            object[] entityIds = entities.Select(entity => (object)entity.Id.Value).ToArray();
+
+            List<EntityGoalRow> rows = connection.Query<EntityGoalRow>(
+                $@"SELECT id AS Id,
+                          entity_id AS EntityId,
+                          goal_key AS GoalKey,
+                          priority AS Priority,
+                          state AS State,
+                          payload_json AS PayloadJson
+                   FROM entity_goals
+                   WHERE entity_id IN ({entityPlaceholders})
+                   ORDER BY entity_id, id",
+                entityIds
+            );
+
+            return rows.Select(row => new EntityGoalState(
+                row.Id,
+                new EntityId(row.EntityId),
+                row.GoalKey,
+                row.Priority,
+                row.State,
+                row.PayloadJson
+            )).ToList();
+        }
+
         public sealed class ClockRow
         {
             public long GameTick { get; set; }
@@ -347,6 +412,16 @@ namespace FantasySim.Persistence.SQLite
             public int Value { get; set; }
             public double DecayPerTick { get; set; }
             public long? ExpiresGameTick { get; set; }
+            public string PayloadJson { get; set; }
+        }
+
+        public sealed class EntityGoalRow
+        {
+            public long Id { get; set; }
+            public long EntityId { get; set; }
+            public string GoalKey { get; set; }
+            public double Priority { get; set; }
+            public string State { get; set; }
             public string PayloadJson { get; set; }
         }
     }

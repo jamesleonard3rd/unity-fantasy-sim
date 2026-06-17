@@ -49,6 +49,8 @@ namespace FantasySim.Tests.EditMode.Persistence
             AssertTableExists(connection, "relationships");
             AssertTableExists(connection, "relationship_terms");
             AssertTableExists(connection, "world_events");
+            AssertTableExists(connection, "entity_goals");
+            AssertTableExists(connection, "region_visits");
         }
 
         [Test]
@@ -60,9 +62,9 @@ namespace FantasySim.Tests.EditMode.Persistence
             var secondRun = initializer.Initialize();
             DatabaseStatus status = initializer.GetStatus();
 
-            Assert.That(firstRun, Is.EquivalentTo(new[] { "001_initial_save_state" }));
+            Assert.That(firstRun, Is.EquivalentTo(new[] { "001_initial_save_state", "002_entity_goals", "003_region_visits" }));
             Assert.That(secondRun, Is.Empty);
-            Assert.That(status.AppliedMigrations, Is.EquivalentTo(new[] { "001_initial_save_state" }));
+            Assert.That(status.AppliedMigrations, Is.EquivalentTo(new[] { "001_initial_save_state", "002_entity_goals", "003_region_visits" }));
         }
 
         [Test]

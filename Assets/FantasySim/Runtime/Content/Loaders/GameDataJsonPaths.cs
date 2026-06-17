@@ -13,5 +13,6 @@ namespace FantasySim.Content.Loaders
         public static string Traits(string root) => Path.Combine(root, "traits", "traits.json");
         public static string Regions(string root) => Path.Combine(root, "regions", "templates.json");
         public static string EntityTemplates(string root) => Path.Combine(root, "entities", "templates.json");
+        public static string Goals(string root) => Path.Combine(root, "goals", "templates.json");
     }
 }

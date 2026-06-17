@@ -14,6 +14,8 @@ namespace FantasySim.Content.Catalog
         private readonly IContentLoader<TraitDefinition> traitLoader;
         private readonly IContentLoader<RegionDefinition> regionLoader;
         private readonly IContentLoader<EntityTemplateDefinition> entityTemplateLoader;
+        private readonly IContentLoader<GoalDefinition> goalLoader;
+        private readonly IContentLoader<EntityRelationshipDefinition> entityRelationshipLoader;
 
         public ContentCatalogBuilder(string gameDataRoot = null)
             : this(
@@ -22,7 +24,9 @@ namespace FantasySim.Content.Catalog
                 new StatJsonLoader(GameDataJsonPaths.Stats(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
                 new TraitJsonLoader(GameDataJsonPaths.Traits(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
                 new RegionTemplateJsonLoader(GameDataJsonPaths.Regions(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
-                new EntityTemplateJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot))
+                new EntityTemplateJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
+                new GoalTemplateJsonLoader(GameDataJsonPaths.Goals(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
+                new EntityRelationshipJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot))
             )
         {
         }
@@ -33,7 +37,9 @@ namespace FantasySim.Content.Catalog
             IContentLoader<StatDefinition> statLoader,
             IContentLoader<TraitDefinition> traitLoader,
             IContentLoader<RegionDefinition> regionLoader,
-            IContentLoader<EntityTemplateDefinition> entityTemplateLoader
+            IContentLoader<EntityTemplateDefinition> entityTemplateLoader,
+            IContentLoader<GoalDefinition> goalLoader = null,
+            IContentLoader<EntityRelationshipDefinition> entityRelationshipLoader = null
         )
         {
             this.factionLoader = factionLoader;
@@ -42,6 +48,8 @@ namespace FantasySim.Content.Catalog
             this.traitLoader = traitLoader;
             this.regionLoader = regionLoader;
             this.entityTemplateLoader = entityTemplateLoader;
+            this.goalLoader = goalLoader;
+            this.entityRelationshipLoader = entityRelationshipLoader;
         }
 
         public ContentCatalogBuildResult Build()
@@ -52,6 +60,9 @@ namespace FantasySim.Content.Catalog
             IReadOnlyList<TraitDefinition> traits = traitLoader.Load();
             IReadOnlyList<RegionDefinition> regions = regionLoader.Load();
             IReadOnlyList<EntityTemplateDefinition> entityTemplates = entityTemplateLoader.Load();
+            IReadOnlyList<GoalDefinition> goals = goalLoader?.Load() ?? System.Array.Empty<GoalDefinition>();
+            IReadOnlyList<EntityRelationshipDefinition> entityRelationships =
+                entityRelationshipLoader?.Load() ?? System.Array.Empty<EntityRelationshipDefinition>();
 
             var messages = new List<ValidationMessage>();
             messages.AddRange(factionLoader.Validate(factions));
@@ -60,6 +71,15 @@ namespace FantasySim.Content.Catalog
             messages.AddRange(traitLoader.Validate(traits));
             messages.AddRange(regionLoader.Validate(regions));
             messages.AddRange(entityTemplateLoader.Validate(entityTemplates));
+            if (goalLoader != null)
+            {
+                messages.AddRange(goalLoader.Validate(goals));
+            }
+
+            if (entityRelationshipLoader != null)
+            {
+                messages.AddRange(entityRelationshipLoader.Validate(entityRelationships));
+            }
 
             Dictionary<string, FactionDefinition> factionsByKey = IndexByKey(factions, definition => definition.key);
             Dictionary<string, RaceDefinition> racesByKey = IndexByKey(races, definition => definition.key);
@@ -67,11 +87,13 @@ namespace FantasySim.Content.Catalog
             Dictionary<string, TraitDefinition> traitsByKey = IndexByKey(traits, definition => definition.key);
             Dictionary<string, RegionDefinition> regionsByKey = IndexByKey(regions, definition => definition.key);
             Dictionary<string, EntityTemplateDefinition> entityTemplatesByKey = IndexByKey(entityTemplates, definition => definition.key);
+            Dictionary<string, GoalDefinition> goalsByKey = IndexByKey(goals, definition => definition.key);
 
             ValidateFactionReferences(factions, factionsByKey, messages);
             ValidateRegionReferences(regions, regionsByKey, messages);
             ValidateTraitReferences(traits, statsByKey, traitsByKey, messages);
             ValidateEntityTemplateReferences(entityTemplates, racesByKey, factionsByKey, regionsByKey, traitsByKey, messages);
+            ValidateEntityRelationshipReferences(entityRelationships, entityTemplatesByKey, messages);
 
             var catalog = new ContentCatalog(
                 factionsByKey,
@@ -79,7 +101,9 @@ namespace FantasySim.Content.Catalog
                 statsByKey,
                 traitsByKey,
                 regionsByKey,
-                entityTemplatesByKey
+                entityTemplatesByKey,
+                goalsByKey,
+                entityRelationships
             );
 
             return new ContentCatalogBuildResult(catalog, new ContentValidationResult(messages));
@@ -218,6 +242,33 @@ namespace FantasySim.Content.Catalog
                         factionsByKey.ContainsKey
                     );
                 }
+            }
+        }
+
+        private static void ValidateEntityRelationshipReferences(
+            IEnumerable<EntityRelationshipDefinition> entityRelationships,
+            IReadOnlyDictionary<string, EntityTemplateDefinition> entityTemplatesByKey,
+            List<ValidationMessage> messages
+        )
+        {
+            foreach (EntityRelationshipDefinition relationship in entityRelationships)
+            {
+                AddMissingReference(
+                    messages,
+                    "entity relationships",
+                    relationship.fromKey,
+                    "from",
+                    relationship.fromKey,
+                    entityTemplatesByKey.ContainsKey
+                );
+                AddMissingReference(
+                    messages,
+                    "entity relationships",
+                    relationship.fromKey,
+                    "to",
+                    relationship.toKey,
+                    entityTemplatesByKey.ContainsKey
+                );
             }
         }
 

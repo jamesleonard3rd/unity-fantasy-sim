@@ -423,6 +423,242 @@ namespace FantasySim.Content.Loaders
         }
     }
 
+    public sealed class EntityRelationshipJsonLoader : IContentLoader<EntityRelationshipDefinition>
+    {
+        private readonly string path;
+
+        public EntityRelationshipJsonLoader(string path)
+        {
+            this.path = path;
+        }
+
+        public IReadOnlyList<EntityRelationshipDefinition> Load()
+        {
+            EntityRelationshipFile file = JsonContentLoaderUtility.LoadFile<EntityRelationshipFile>(path);
+            EntityRelationshipJson[] relationships = file?.relationships ?? Array.Empty<EntityRelationshipJson>();
+            var definitions = new List<EntityRelationshipDefinition>(relationships.Length);
+
+            foreach (EntityRelationshipJson relationship in relationships)
+            {
+                string fromKey = ContentKeyNormalizer.Normalize(relationship.from);
+                string toKey = ContentKeyNormalizer.Normalize(relationship.to);
+                if (string.IsNullOrWhiteSpace(fromKey) && string.IsNullOrWhiteSpace(toKey))
+                {
+                    continue;
+                }
+
+                definitions.Add(new EntityRelationshipDefinition
+                {
+                    fromKey = fromKey,
+                    toKey = toKey,
+                    type = relationship.type,
+                    opinion = relationship.opinion
+                });
+            }
+
+            return definitions;
+        }
+
+        public IReadOnlyList<ValidationMessage> Validate(IReadOnlyList<EntityRelationshipDefinition> definitions)
+        {
+            var messages = new List<ValidationMessage>();
+            foreach (EntityRelationshipDefinition relationship in definitions)
+            {
+                if (string.IsNullOrWhiteSpace(relationship.fromKey))
+                {
+                    messages.Add(new ValidationMessage(
+                        ValidationSeverity.Error,
+                        "content.missing_reference",
+                        "entity relationships are missing a required 'from' entity."
+                    ));
+                }
+
+                if (string.IsNullOrWhiteSpace(relationship.toKey))
+                {
+                    messages.Add(new ValidationMessage(
+                        ValidationSeverity.Error,
+                        "content.missing_reference",
+                        $"entity relationship '{relationship.fromKey}' is missing a required 'to' entity."
+                    ));
+                }
+            }
+
+            return messages;
+        }
+
+        [Serializable]
+        private sealed class EntityRelationshipFile
+        {
+            public EntityRelationshipJson[] relationships;
+        }
+
+        [Serializable]
+        private sealed class EntityRelationshipJson
+        {
+            public string from;
+            public string to;
+            public string type;
+            public int opinion;
+        }
+    }
+
+    public sealed class GoalTemplateJsonLoader : IContentLoader<GoalDefinition>
+    {
+        private readonly string path;
+
+        public GoalTemplateJsonLoader(string path)
+        {
+            this.path = path;
+        }
+
+        public IReadOnlyList<GoalDefinition> Load()
+        {
+            string json = System.IO.File.ReadAllText(path);
+            var definitions = new List<GoalDefinition>();
+
+            foreach (string element in JsonArraySplitter.SplitArrayElements(json, "goal_templates"))
+            {
+                GoalTemplateJson template = UnityEngine.JsonUtility.FromJson<GoalTemplateJson>(element);
+                if (template == null || string.IsNullOrWhiteSpace(template.goal_type))
+                {
+                    continue;
+                }
+
+                definitions.Add(new GoalDefinition
+                {
+                    key = ContentKeyNormalizer.Normalize(template.goal_type),
+                    displayName = template.goal_type,
+                    completionMode = template.completion_mode,
+                    requires = CopyNonEmpty(template.requires),
+                    rawJson = element
+                });
+            }
+
+            return definitions;
+        }
+
+        public IReadOnlyList<ValidationMessage> Validate(IReadOnlyList<GoalDefinition> definitions) =>
+            LoaderValidation.ValidateDefinitions(definitions, definition => definition.key, definition => definition.displayName, "goal templates");
+
+        private static string[] CopyNonEmpty(string[] values)
+        {
+            if (values == null)
+            {
+                return Array.Empty<string>();
+            }
+
+            var copied = new List<string>(values.Length);
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    copied.Add(value);
+                }
+            }
+
+            return copied.ToArray();
+        }
+
+        [Serializable]
+        private sealed class GoalTemplateJson
+        {
+            public string goal_type;
+            public string completion_mode;
+            public string[] requires;
+        }
+    }
+
+    internal static class JsonArraySplitter
+    {
+        public static IReadOnlyList<string> SplitArrayElements(string json, string arrayPropertyName)
+        {
+            var elements = new List<string>();
+            if (string.IsNullOrEmpty(json))
+            {
+                return elements;
+            }
+
+            int arrayStart = FindArrayStart(json, arrayPropertyName);
+            if (arrayStart < 0)
+            {
+                return elements;
+            }
+
+            int depth = 0;
+            int elementStart = -1;
+            bool inString = false;
+            bool escaped = false;
+
+            for (int index = arrayStart; index < json.Length; index++)
+            {
+                char character = json[index];
+
+                if (inString)
+                {
+                    if (escaped)
+                    {
+                        escaped = false;
+                    }
+                    else if (character == '\\')
+                    {
+                        escaped = true;
+                    }
+                    else if (character == '"')
+                    {
+                        inString = false;
+                    }
+
+                    continue;
+                }
+
+                switch (character)
+                {
+                    case '"':
+                        inString = true;
+                        break;
+                    case '[':
+                    case '{':
+                        depth++;
+                        if (depth == 2 && character == '{' && elementStart < 0)
+                        {
+                            elementStart = index;
+                        }
+
+                        break;
+                    case '}':
+                    case ']':
+                        depth--;
+                        if (depth == 1 && character == '}' && elementStart >= 0)
+                        {
+                            elements.Add(json.Substring(elementStart, index - elementStart + 1));
+                            elementStart = -1;
+                        }
+                        else if (depth == 0)
+                        {
+                            return elements;
+                        }
+
+                        break;
+                }
+            }
+
+            return elements;
+        }
+
+        private static int FindArrayStart(string json, string arrayPropertyName)
+        {
+            string token = "\"" + arrayPropertyName + "\"";
+            int propertyIndex = json.IndexOf(token, StringComparison.Ordinal);
+            if (propertyIndex < 0)
+            {
+                return -1;
+            }
+
+            int bracketIndex = json.IndexOf('[', propertyIndex + token.Length);
+            return bracketIndex;
+        }
+    }
+
     internal static class LoaderValidation
     {
         public static IReadOnlyList<ValidationMessage> ValidateDefinitions<TDefinition>(

@@ -130,7 +130,9 @@ namespace FantasySim.Simulation.State
             IReadOnlyList<PendingWorldEvent> events,
             IReadOnlyList<RelationshipState> updatedRelationships = null,
             IReadOnlyList<RelationshipTermState> updatedRelationshipTerms = null,
-            IReadOnlyList<long> deletedRelationshipTermIds = null
+            IReadOnlyList<long> deletedRelationshipTermIds = null,
+            IReadOnlyList<EntityGoalState> updatedEntityGoals = null,
+            IReadOnlyList<long> deletedEntityGoalIds = null
         )
         {
             RegionId = regionId;
@@ -139,6 +141,8 @@ namespace FantasySim.Simulation.State
             UpdatedRelationships = updatedRelationships ?? new List<RelationshipState>();
             UpdatedRelationshipTerms = updatedRelationshipTerms ?? new List<RelationshipTermState>();
             DeletedRelationshipTermIds = deletedRelationshipTermIds ?? new List<long>();
+            UpdatedEntityGoals = updatedEntityGoals ?? new List<EntityGoalState>();
+            DeletedEntityGoalIds = deletedEntityGoalIds ?? new List<long>();
         }
 
         public RegionId RegionId { get; }
@@ -147,6 +151,8 @@ namespace FantasySim.Simulation.State
         public IReadOnlyList<RelationshipState> UpdatedRelationships { get; }
         public IReadOnlyList<RelationshipTermState> UpdatedRelationshipTerms { get; }
         public IReadOnlyList<long> DeletedRelationshipTermIds { get; }
+        public IReadOnlyList<EntityGoalState> UpdatedEntityGoals { get; }
+        public IReadOnlyList<long> DeletedEntityGoalIds { get; }
     }
 
     public sealed class PendingWorldEvent
@@ -186,7 +192,8 @@ namespace FantasySim.Simulation.State
             IReadOnlyList<RegionState> regions,
             IReadOnlyList<EntityState> entities,
             IReadOnlyList<RelationshipState> relationships = null,
-            IReadOnlyList<RelationshipTermState> relationshipTerms = null
+            IReadOnlyList<RelationshipTermState> relationshipTerms = null,
+            IReadOnlyList<EntityGoalState> entityGoals = null
         )
         {
             TickContext = tickContext;
@@ -194,6 +201,7 @@ namespace FantasySim.Simulation.State
             Entities = entities;
             Relationships = relationships ?? new List<RelationshipState>();
             RelationshipTerms = relationshipTerms ?? new List<RelationshipTermState>();
+            EntityGoals = entityGoals ?? new List<EntityGoalState>();
         }
 
         public TickContext TickContext { get; }
@@ -201,6 +209,7 @@ namespace FantasySim.Simulation.State
         public IReadOnlyList<EntityState> Entities { get; }
         public IReadOnlyList<RelationshipState> Relationships { get; }
         public IReadOnlyList<RelationshipTermState> RelationshipTerms { get; }
+        public IReadOnlyList<EntityGoalState> EntityGoals { get; }
     }
 
     public readonly struct RelationshipKey : IEquatable<RelationshipKey>
@@ -282,6 +291,33 @@ namespace FantasySim.Simulation.State
         public int Value { get; }
         public double DecayPerTick { get; }
         public GameTick? ExpiresTick { get; }
+        public string PayloadJson { get; }
+    }
+
+    public sealed class EntityGoalState
+    {
+        public EntityGoalState(
+            long id,
+            EntityId entityId,
+            string goalKey,
+            double priority,
+            string state,
+            string payloadJson
+        )
+        {
+            Id = id;
+            EntityId = entityId;
+            GoalKey = goalKey;
+            Priority = priority;
+            State = state;
+            PayloadJson = payloadJson;
+        }
+
+        public long Id { get; }
+        public EntityId EntityId { get; }
+        public string GoalKey { get; }
+        public double Priority { get; }
+        public string State { get; }
         public string PayloadJson { get; }
     }
 }

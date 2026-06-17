@@ -110,6 +110,36 @@ namespace FantasySim.Persistence.Migrations
                     @"CREATE INDEX IF NOT EXISTS idx_relationship_terms_pair
                         ON relationship_terms (subject_entity_id, target_entity_id)"
                 }
+            ),
+            new SqlMigration(
+                "002_entity_goals",
+                "Add entity_goals table for NPC goal runtime state.",
+                new[]
+                {
+                    @"CREATE TABLE IF NOT EXISTS entity_goals (
+                        id INTEGER PRIMARY KEY,
+                        entity_id INTEGER NOT NULL,
+                        goal_key TEXT NOT NULL,
+                        priority REAL NOT NULL,
+                        state TEXT NOT NULL,
+                        payload_json TEXT,
+                        FOREIGN KEY (entity_id) REFERENCES entities(id) ON DELETE CASCADE
+                    )",
+                    @"CREATE INDEX IF NOT EXISTS idx_entity_goals_entity
+                        ON entity_goals (entity_id)"
+                }
+            ),
+            new SqlMigration(
+                "003_region_visits",
+                "Add region_visits table tracking the last tick a region's events were seen.",
+                new[]
+                {
+                    @"CREATE TABLE IF NOT EXISTS region_visits (
+                        region_id INTEGER PRIMARY KEY,
+                        last_seen_game_tick INTEGER NOT NULL,
+                        FOREIGN KEY (region_id) REFERENCES regions(id) ON DELETE CASCADE
+                    )"
+                }
             )
         };
     }

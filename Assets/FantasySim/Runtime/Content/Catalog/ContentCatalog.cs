@@ -11,7 +11,9 @@ namespace FantasySim.Content.Catalog
             IReadOnlyDictionary<string, StatDefinition> stats,
             IReadOnlyDictionary<string, TraitDefinition> traits,
             IReadOnlyDictionary<string, RegionDefinition> regions,
-            IReadOnlyDictionary<string, EntityTemplateDefinition> entityTemplates
+            IReadOnlyDictionary<string, EntityTemplateDefinition> entityTemplates,
+            IReadOnlyDictionary<string, GoalDefinition> goals = null,
+            IReadOnlyList<EntityRelationshipDefinition> entityRelationships = null
         )
         {
             Factions = factions;
@@ -20,6 +22,8 @@ namespace FantasySim.Content.Catalog
             Traits = traits;
             Regions = regions;
             EntityTemplates = entityTemplates;
+            Goals = goals ?? new Dictionary<string, GoalDefinition>();
+            EntityRelationships = entityRelationships ?? new List<EntityRelationshipDefinition>();
         }
 
         public static ContentCatalog Empty { get; } = new ContentCatalog(
@@ -37,5 +41,7 @@ namespace FantasySim.Content.Catalog
         public IReadOnlyDictionary<string, TraitDefinition> Traits { get; }
         public IReadOnlyDictionary<string, RegionDefinition> Regions { get; }
         public IReadOnlyDictionary<string, EntityTemplateDefinition> EntityTemplates { get; }
+        public IReadOnlyDictionary<string, GoalDefinition> Goals { get; }
+        public IReadOnlyList<EntityRelationshipDefinition> EntityRelationships { get; }
     }
 }

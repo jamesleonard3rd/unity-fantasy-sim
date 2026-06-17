@@ -20,7 +20,9 @@ namespace FantasySim.Persistence.SQLite
             "entity_positions",
             "relationships",
             "relationship_terms",
-            "world_events"
+            "world_events",
+            "entity_goals",
+            "region_visits"
         };
 
         private readonly DatabasePathProvider pathProvider;

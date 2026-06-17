@@ -32,17 +32,59 @@ Implemented:
 - `Assets/FantasySim/Runtime/Content/` contains the first static content
   boundary: definition DTOs, JSON loaders, key normalization and validation
   helpers, `ContentCatalog`, `ContentCatalogBuilder`, and validation report
-  formatting for editor tooling.
+  formatting for editor tooling. The catalog now also loads goal templates
+  (`GoalTemplateJsonLoader`) and the entity `relationships` block
+  (`EntityRelationshipJsonLoader`), with endpoint validation for relationship
+  references.
 - `Assets/FantasySim/Runtime/Persistence/` owns SQLite path resolution,
   connection setup, database initialization, migration execution, and database
-  status reporting. It can now generate the first starter-world save-state rows
-  from a validated `ContentCatalog`.
+  status reporting. It generates the starter-world save-state rows from a
+  validated `ContentCatalog`, including seeded relationships, permanent
+  kinship terms from entity-template metadata, derived same-house terms (opinion
+  cached as the sum of seeded terms), and default per-entity goal rows. The
+  `entity_goals` table is created by the `002_entity_goals` migration, loaded
+  into partition state, and written back delta-only.
 - `Assets/FantasySim/Runtime/Simulation/` contains the first pure tick path:
   runtime state DTOs, a starter simulation pipeline, a
   `RelationshipDynamicsSystem` that decays relationship terms and recalculates
-  cached opinions, and a `RegionHeartbeatSystem` that emits a
-  low-significance `region.tick` event. `Assets/FantasySim/Runtime/Session/`
-  remains an assembly boundary for later session orchestration.
+  cached opinions, a `GoalScoringSystem` that deterministically scores each
+  entity's goals and selects a primary goal (delta-tracked, emitting a
+  low-significance `goal.primary_selected` event), a `GoalAdvancementSystem`
+  that advances the active goal's authored subgoal steps (only the `wait_until`
+  step is implemented; `travel_to_region`, `register_for_tournament`, and
+  `compete_in_tournament` are deferred no-op handlers that stall the goal), a
+  `PairwiseInteractionSystem` that lets capped, deterministically selected
+  co-located entities interact (emitting decaying `interaction` relationship
+  terms and `interaction.occurred` events), and a `RegionHeartbeatSystem`
+  that emits a low-significance `region.tick` event. The pipeline runs
+  relationship dynamics, goal scoring, goal advancement, pairwise interactions,
+  then the heartbeat, merging every system's per-region delta (goal updates are
+  deduped by goal id so scoring owns state/priority and advancement owns step
+  payload).
+- `Assets/FantasySim/Runtime/Session/` now hosts the session runtime:
+  `RegionSimulationService.TickPartition(partitionId)` loads a partition, runs
+  the pipeline (built once with goal step definitions from the catalog) and
+  writes the delta; a pure `CoarseRegionScheduler` ticks at most one due
+  partition per slice on a real-time cadence and skips live partitions;
+  `GameSessionService` owns the scheduler lifecycle; and a
+  `GameSessionBehaviour` MonoBehaviour drives the scheduler via a coroutine
+  during play. `SimulationPartitionRepository` lists coarse, non-live
+  partitions for the scheduler. A `LiveRegionAuthorityService` now owns the
+  coarse/live handoff: `EnterLiveRegion` flips a region to `live` authority (so
+  the scheduler skips its partition) and returns the region's entities plus a
+  region-entry summary, while `ExitLiveRegion` writes entity positions back,
+  restores `coarse` authority, and records the last-seen tick. A minimal
+  `LiveRegionController` MonoBehaviour and `LiveRegionSandbox` scene spawn one
+  placeholder capsule per entity from saved region state and persist their
+  positions on exit. `LiveRegionRepository` performs the authority,
+  position-writeback, and `region_visits` last-seen writes (table added by the
+  `003_region_visits` migration).
+- `Assets/FantasySim/Runtime/Persistence/SQLite/WorldEventReadRepository.cs`
+  queries `world_events` with region/entity/type/significance/tick-range
+  filters, and the pure `RegionEntrySummaryService` groups those events into a
+  concise "While you were away..." summary. The editor `Event Log Viewer`
+  window (`Fantasy Sim/Simulation/Event Log Viewer`) browses the development
+  database events with those filters and previews the region-entry summary.
 - `Assets/FantasySim/Editor/DatabaseTools/` exposes editor menu items for
   validating game data, rebuilding the development database, generating the
   starter world, and inspecting database status.
@@ -51,7 +93,14 @@ Implemented:
   validation, JSON loading, reference validation, catalog creation, validation
   report formatting, starter-world generation/idempotency, partition loading,
   relationship loading, relationship delta persistence, relationship dynamics,
-  heartbeat simulation, and heartbeat event persistence.
+  heartbeat simulation, heartbeat event persistence, seeded kinship/house terms
+  with summed opinions, entity-goal loading, deterministic goal scoring,
+  delta-only goal writes, goal subgoal advancement (`wait_until`), pairwise
+  interactions, the pipeline goal-merge, coarse partition listing, the region
+  simulation service tick, the coarse region scheduler cadence, live-region
+  authority/position/last-seen writes, the live-region enter/exit handoff
+  (scheduler skip plus position persistence), filtered world-event reads, and
+  region-entry summary grouping.
 - `Assets/DB.cs` is now only a temporary bootstrap component that delegates to
   `DatabaseInitializer`.
 
@@ -61,11 +110,12 @@ Current verification:
 - EditMode tests pass from the Unity Test Runner.
 - `Fantasy Sim/Database/Rebuild Development Database` creates a fresh
   development database.
-- `Fantasy Sim/Database/Log Database Status` reports the initial schema
-  migration once: `001_initial_save_state`.
+- `Fantasy Sim/Database/Log Database Status` reports the applied schema
+  migrations: `001_initial_save_state` and `002_entity_goals`.
 - Static JSON content has been moved into `Assets/GameData/Json/`.
-- JSON loaders now parse factions, races, stats, traits, regions, and entity
-  templates into normalized definition DTOs.
+- JSON loaders now parse factions, races, stats, traits, regions, entity
+  templates, goal templates, and the entity `relationships` block into
+  normalized definition DTOs.
 - Static definitions are intentionally not mirrored into SQLite yet. JSON plus
   `ContentCatalog` remain the canonical immutable content source; SQLite stores
   generated save-state rows and stable definition keys.
@@ -78,27 +128,37 @@ Current verification:
   relationship rows, relationship terms, and relationship delta payloads.
 - `StarterWorldReadRepository` loads the generated `starter_world` partition,
   including regions, entities, positions, relationship pairs, relationship
-  terms, and clock context.
-- `Fantasy Sim/Simulation/Tick Starter World` loads the starter partition, runs
-  relationship dynamics ahead of the heartbeat, persists changed relationship
-  opinions/terms plus events, and advances the world clock.
+  terms, entity goals, and clock context.
+- `Fantasy Sim/Simulation/Tick Starter World` resolves the starter partition id
+  and ticks it through `RegionSimulationService`, running relationship dynamics,
+  goal scoring, goal advancement, and pairwise interactions ahead of the
+  heartbeat, persisting changed relationship opinions/terms, updated goal rows,
+  new interaction terms, plus events, and advancing the world clock.
+- `Fantasy Sim/Simulation/Tick Due Partitions` runs one `CoarseRegionScheduler`
+  pass over the development database, ticking every coarse partition that is
+  currently due.
+- Starter-world generation seeds `relationships` and permanent `relationship_terms`
+  (kinship from the JSON `relationships` block plus derived same-house terms) and
+  default `entity_goals` rows, so generated worlds start with meaningful social
+  and goal state.
 - The development starter world has been generated from the editor menu, and
   database status reports nonzero counts for generated world tables.
-- CLI EditMode test execution for the relationship milestone was attempted, but
-  Unity batchmode was blocked because another Unity instance has this project
-  open. Re-run from the Unity Editor/Test Runner or after closing the open
-  Editor instance.
+- CLI EditMode test execution remains blocked because another Unity instance has
+  this project open. The relationship-seeding and goal milestone code compiles
+  clean against the static analyzer, but the new EditMode tests (seeded
+  kinship/house terms, entity-goal loading, deterministic goal scoring, goal
+  delta writes, and the updated migration/table expectations) still need to be
+  run from the Unity Editor/Test Runner or after closing the open Editor instance.
 
 Next immediate milestone:
 
-1. Seed starter-world relationships and permanent kinship/house terms from
-   entity template metadata so generated worlds have meaningful social state.
-2. Add the first `GoalScoringSystem` data model and runtime system, keeping goal
-   state typed and delta-tracked like relationships.
-3. Extend the SQLite load/write path for active goal rows without rewriting
-   unchanged entities or unrelated relationships.
-4. Cover seeded relationship data, goal loading, deterministic goal scoring, and
-   goal delta writes with focused EditMode tests.
+
+1. Replace the placeholder capsule spawn with real `EntityView`/`ActorVitals`
+   adapters and a `RegionSceneLoader` so the live region hydrates richer state,
+   and add PlayMode coverage for the enter/interact/exit/re-enter loop.
+2. Promote the region-entry summary into a player-facing in-game panel (it is
+   currently editor-only) and persist a per-entity/region "last seen" cursor so
+   summaries cover exactly the events since the player last visited.
 
 ---
 
@@ -704,7 +764,12 @@ Steps:
    - `RegionTemplateJsonLoader` **Done for the first slice.**
    - `EntityTemplateJsonLoader` **Done for the first slice.**
    - `SchoolJsonLoader`
-   - `GoalTemplateJsonLoader`
+   - `GoalTemplateJsonLoader` **Done; flat fields plus the full template object
+     stored as a raw JSON blob. The subgoal step engine starts with parsing the
+     `wait_until` step; the remaining step types stay deferred until the travel
+     and world-process layers exist.**
+   - `EntityRelationshipJsonLoader` **Done; parses the entity-template
+     `relationships` block.**
 4. Normalize keys during import. **Done for the first-slice loaders.**
    - Display names can contain spaces and punctuation.
    - Keys should be stable, lowercase, and safe for references.
@@ -989,13 +1054,19 @@ rows.
 
 Recommended initial system order:
 
-1. `RelationshipDynamicsSystem`
-2. `GoalScoringSystem`
-3. `PairwiseInteractionSystem`
-4. `FactionPoliticsSystem`
-5. `SchoolLifecycleSystem`
-6. `AgingLifecycleSystem`
-7. `RegionHeartbeatSystem`
+1. `RelationshipDynamicsSystem` **Done.**
+2. `GoalScoringSystem` **Done.**
+3. `GoalAdvancementSystem` **Done; advances the active goal's authored subgoal
+   steps, implementing only `wait_until` for now.**
+4. `PairwiseInteractionSystem` **Done for the first capped slice.**
+5. `FactionPoliticsSystem`
+6. `SchoolLifecycleSystem`
+7. `AgingLifecycleSystem`
+8. `RegionHeartbeatSystem` **Done.**
+
+The starter pipeline currently runs `RelationshipDynamicsSystem`,
+`GoalScoringSystem`, `GoalAdvancementSystem`, `PairwiseInteractionSystem`, then
+`RegionHeartbeatSystem`, merging each system's per-region delta into one delta.
 
 The heartbeat system is useful during early development because it proves the
 tick path works even before gameplay systems are interesting. It can emit a low
@@ -1013,9 +1084,10 @@ Purpose:
 
 Implementation steps:
 
-1. Add `relationships` and `relationship_terms`.
+1. Add `relationships` and `relationship_terms`. **Done.**
 2. Seed starting relationships and kinship terms from entity templates or house
-   generation.
+   generation. **Done; starter-world generation seeds JSON kinship terms plus
+   derived same-house terms with summed cached opinions.**
 3. Load relationships only for pairs where both entities are in the region.
 4. For each relationship term:
    - If expired, set value to zero or remove it.
@@ -1043,26 +1115,40 @@ Purpose:
 - Give each NPC a small set of active goals.
 - Score goals based on traits, relationships, faction role, and region.
 - Pick a primary goal for the coarse tick.
-- Let the selected goal affect state.
+- Advance the selected broad goal through its ordered or unordered subgoal steps.
 
 Implementation steps:
 
-1. Add `entity_goals`.
-2. Import goal templates from JSON.
-3. Assign default goals during entity generation.
-4. Create `GoalScoringSystem`.
+1. Add `entity_goals`. **Done via the `002_entity_goals` migration.**
+2. Import goal templates from JSON. **Done; `GoalTemplateJsonLoader` feeds
+   `ContentCatalog.Goals`.**
+3. Assign default goals during entity generation. **Done; starter-world
+   generation seeds default candidate goals per entity.**
+4. Create `GoalScoringSystem`. **Done.**
 5. For each entity:
-   - Load active goals.
-   - Compute utility score per goal.
-   - Choose primary goal.
-   - Apply coarse outcome.
+   - Load active goals. **Done; loaded into `LoadedPartitionState.EntityGoals`.**
+   - Compute utility score per goal. **Done; deterministic utility from role,
+     combat traits, and outgoing positive relationships.**
+   - Choose primary goal. **Done; highest score wins, ties broken by goal key.**
+   - Advance subgoals. **Done via `GoalAdvancementSystem`; it parses the
+     authored ordered/unordered subgoal steps from `goals/templates.json`
+     (`GoalProgressionParser` over `GoalDefinition.rawJson`) and advances the
+     active goal's current step, tracking the step index in the goal payload.
+     Only the `wait_until` subgoal is implemented (its `target_game_tick` comes
+     from the active goal payload); `travel_to_region`,
+     `register_for_tournament`, and `compete_in_tournament` are deferred no-op
+     handlers that stall the goal until the travel and world-process layers
+     exist. Step/goal completion emit `goal.step_completed`/`goal.completed`
+     events.**
 6. Examples:
    - Hungry NPC prioritizes finding food.
    - Ambitious noble prioritizes faction influence.
    - Exhausted guard prioritizes rest.
    - Student prioritizes study.
 7. Record updated goals and affected component rows in `RegionStateDelta`.
-8. Emit events for significant outcomes.
+   **Done for goal rows via `UpdatedEntityGoals`/`DeletedEntityGoalIds`.**
+8. Emit events for significant outcomes. **Done; emits `goal.primary_selected`
+   when an entity's primary goal changes.**
 
 Keep the first version simple. Utility scoring can be rough; the value is in the
 architecture and testability.
@@ -1070,6 +1156,13 @@ architecture and testability.
 ---
 
 ## 18. Pairwise Interaction System
+
+**First slice done.** `PairwiseInteractionSystem` selects up to a capped number
+of co-located candidates per entity (preferring existing relationships, then a
+stable id ordering for determinism), applies at most one interaction per entity
+per tick, and records consequences as decaying `interaction` relationship terms
+plus `interaction.occurred` events. All work is pure and in-memory; spatial and
+social buckets remain a later optimization.
 
 Purpose:
 
@@ -1503,6 +1596,7 @@ load it again.
    - `relationships`
    - `relationship_terms`
    - `world_events`
+   - `entity_goals` (added by the `002_entity_goals` migration)
    - only the static definition tables that are useful for validation/debug SQL
 5. Copy JSON into `Assets/GameData/Json/`. **Done.**
 6. Implement JSON loaders for: **Done for the first slice.**
@@ -1522,30 +1616,46 @@ load it again.
    - Create 3 matching simulation partitions.
    - Create 50 NPCs.
    - Assign NPCs to regions.
-   - Give some NPCs relationships.
+   - Give some NPCs relationships. **Done; seeds kinship and derived same-house
+     terms plus relationship rows, and default per-entity goals.**
 10. Implement `RegionState`. **Done for the current partition state slice.**
-11. Implement `RegionStateDelta`. **Done for events and relationship deltas.**
+11. Implement `RegionStateDelta`. **Done for events, relationship deltas, and
+    entity-goal deltas.**
 12. Implement `RegionStateRepository.Load(partitionId)`. **Done as
-    `StarterWorldReadRepository.LoadPartition`.**
-13. Implement delta tracking. **Started with event, relationship, and
-    relationship-term deltas.**
+    `StarterWorldReadRepository.LoadPartition`, including entity goals.**
+13. Implement delta tracking. **Started with event, relationship,
+    relationship-term, and entity-goal deltas.**
 14. Implement `RegionStateRepository.Write(state.Delta)`. **Done for heartbeat
     events, relationship rows, relationship terms, deleted relationship terms,
-    and clock advancement.**
+    entity-goal upserts/deletes, and clock advancement.**
 15. Implement `TickContext`. **Done for current tick, partition metadata, and
     clock settings.**
 16. Implement `RegionHeartbeatSystem`. **Done.**
 17. Implement `RelationshipDynamicsSystem`. **Done for deterministic term decay,
     expiry, opinion recalculation, clamping, significant events, and pipeline
     ordering ahead of heartbeat.**
-18. Implement `RegionSimulationService.TickPartition(partitionId)`.
-19. Implement debug editor button: tick selected partition.
-20. Implement `CoarseRegionScheduler`.
-21. Implement event log viewer.
-22. Implement one live test scene.
-23. Spawn NPC placeholders from region state.
-24. Save NPC positions on exit through live-region delta write-back.
-25. Reload session and verify persisted state.
+17a. Implement `GoalScoringSystem`. **Done; deterministic utility scoring,
+    primary-goal selection, delta-only goal updates, and `goal.primary_selected`
+    events, ordered after relationship dynamics in the pipeline.**
+18. Implement `RegionSimulationService.TickPartition(partitionId)`. **Done; in
+    `FantasySim.Session`, builds the pipeline once with goal step definitions
+    and ticks a partition by id.**
+19. Implement debug editor button: tick selected partition. **Done via
+    `Fantasy Sim/Simulation/Tick Starter World` and `Tick Due Partitions`.**
+20. Implement `CoarseRegionScheduler`. **Done; pure, real-time cadence, ticks at
+    most one due partition per slice, skips live partitions, driven at runtime
+    by `GameSessionBehaviour` and by the editor `Tick Due Partitions` menu.**
+21. Implement event log viewer. **Done (editor-only); `Fantasy Sim/Simulation/
+    Event Log Viewer` (`EventLogWindow`) filters `world_events` and previews the
+    `RegionEntrySummaryService` summary.**
+22. Implement one live test scene. **Done; `LiveRegionSandbox.unity` hosts a
+    `LiveRegionController`.**
+23. Spawn NPC placeholders from region state. **Done; capsules spawn from the
+    entities returned by `LiveRegionAuthorityService.EnterLiveRegion`.**
+24. Save NPC positions on exit through live-region delta write-back. **Done;
+    `ExitLiveRegion` -> `LiveRegionRepository.WriteEntityPositions`.**
+25. Reload session and verify persisted state. **Covered by EditMode tests;
+    PlayMode reload verification still pending.**
 
 ### Done Criteria
 
@@ -1558,9 +1668,15 @@ load it again.
 - A partition tick appends at least one event. **Implemented by heartbeat and
   significant relationship opinion changes.**
 - The scheduler can tick unloaded partitions while a session is active.
-- The scheduler skips the live region.
-- The player can enter and exit one region scene.
-- NPC positions persist across restart.
+  **Implemented; `CoarseRegionScheduler` driven by `GameSessionBehaviour` ticks
+  due coarse partitions during play. Verify in an authenticated Unity session.**
+- The scheduler skips the live region. **Implemented; `SimulationPartitionRepository`
+  excludes partitions marked live or containing a live region.**
+- The player can enter and exit one region scene. **Implemented for a minimal
+  sandbox; `LiveRegionController` in `LiveRegionSandbox.unity` enters/exits via
+  `LiveRegionAuthorityService`. PlayMode coverage still pending.**
+- NPC positions persist across restart. **Implemented; `ExitLiveRegion` writes
+  capsule positions back through `LiveRegionRepository.WriteEntityPositions`.**
 - EditMode tests cover JSON validation, content catalog generation, repository
   load/write, and the first simulation systems. **Foundation, first-slice
   content, starter-world repository, heartbeat, and relationship dynamics tests
@@ -1580,14 +1696,18 @@ Build in this order:
    - Faction terms.
 
 2. **Goals**
-   - Active goals per entity.
-   - Utility scoring.
-   - Primary goal outcome.
+   - Active goals per entity. **Done.**
+   - Utility scoring. **Done (deterministic first-slice scoring).**
+   - Subgoal step engine. **Done for the first slice; `GoalAdvancementSystem`
+     drives ordered/unordered subgoal events (`goals/templates.json` `steps`)
+     and implements only the `wait_until` subgoal. The other step types are
+     deferred no-op handlers until the travel and world-process layers exist.**
 
 3. **Pairwise Interactions**
-   - Candidate selection.
-   - Relationship changes.
-   - Gossip and conflict.
+   - Candidate selection. **Done; capped, deterministic, prefers existing
+     relationships.**
+   - Relationship changes. **Done; emits decaying `interaction` terms.**
+   - Gossip and conflict. **Pending richer interaction outcomes.**
 
 4. **Faction Politics**
    - Faction reputation.

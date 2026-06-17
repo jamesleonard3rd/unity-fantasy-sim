@@ -37,6 +37,8 @@ namespace FantasySim.Persistence.SQLite
             int relationshipsUpdated = 0;
             int relationshipTermsUpdated = 0;
             int relationshipTermsDeleted = 0;
+            int entityGoalsUpdated = 0;
+            int entityGoalsDeleted = 0;
             using SQLiteConnection connection = connectionFactory.OpenConnection();
             connection.RunInTransaction(() =>
             {
@@ -64,6 +66,17 @@ namespace FantasySim.Persistence.SQLite
                     {
                         relationshipTermsDeleted += DeleteRelationshipTerm(connection, termId);
                     }
+
+                    foreach (EntityGoalState goal in regionDelta.UpdatedEntityGoals)
+                    {
+                        UpsertEntityGoal(connection, goal);
+                        entityGoalsUpdated++;
+                    }
+
+                    foreach (long goalId in regionDelta.DeletedEntityGoalIds)
+                    {
+                        entityGoalsDeleted += DeleteEntityGoal(connection, goalId);
+                    }
                 }
 
                 int clockRowsUpdated = connection.Execute(
@@ -86,7 +99,9 @@ namespace FantasySim.Persistence.SQLite
                 eventsInserted,
                 relationshipsUpdated,
                 relationshipTermsUpdated,
-                relationshipTermsDeleted
+                relationshipTermsDeleted,
+                entityGoalsUpdated,
+                entityGoalsDeleted
             );
         }
 
@@ -220,6 +235,70 @@ namespace FantasySim.Persistence.SQLite
                 termId
             );
         }
+
+        private static void UpsertEntityGoal(SQLiteConnection connection, EntityGoalState goal)
+        {
+            if (goal == null)
+            {
+                throw new ArgumentNullException(nameof(goal));
+            }
+
+            if (string.IsNullOrWhiteSpace(goal.GoalKey))
+            {
+                throw new ArgumentException("Entity goal key is required.", nameof(goal));
+            }
+
+            if (goal.Id > 0)
+            {
+                connection.Execute(
+                    @"INSERT OR REPLACE INTO entity_goals (
+                        id,
+                        entity_id,
+                        goal_key,
+                        priority,
+                        state,
+                        payload_json
+                      )
+                      VALUES (?, ?, ?, ?, ?, ?)",
+                    goal.Id,
+                    goal.EntityId.Value,
+                    goal.GoalKey,
+                    goal.Priority,
+                    goal.State,
+                    goal.PayloadJson
+                );
+                return;
+            }
+
+            connection.Execute(
+                @"INSERT INTO entity_goals (
+                    entity_id,
+                    goal_key,
+                    priority,
+                    state,
+                    payload_json
+                  )
+                  VALUES (?, ?, ?, ?, ?)",
+                goal.EntityId.Value,
+                goal.GoalKey,
+                goal.Priority,
+                goal.State,
+                goal.PayloadJson
+            );
+        }
+
+        private static int DeleteEntityGoal(SQLiteConnection connection, long goalId)
+        {
+            if (goalId <= 0)
+            {
+                throw new ArgumentException("Entity goal id must be positive.", nameof(goalId));
+            }
+
+            return connection.Execute(
+                "DELETE FROM entity_goals WHERE id = ?",
+                goalId
+            );
+        }
     }
 
     public sealed class RegionStateWriteResult
@@ -230,7 +309,9 @@ namespace FantasySim.Persistence.SQLite
             int eventsInserted,
             int relationshipsUpdated = 0,
             int relationshipTermsUpdated = 0,
-            int relationshipTermsDeleted = 0
+            int relationshipTermsDeleted = 0,
+            int entityGoalsUpdated = 0,
+            int entityGoalsDeleted = 0
         )
         {
             PreviousTick = previousTick;
@@ -239,6 +320,8 @@ namespace FantasySim.Persistence.SQLite
             RelationshipsUpdated = relationshipsUpdated;
             RelationshipTermsUpdated = relationshipTermsUpdated;
             RelationshipTermsDeleted = relationshipTermsDeleted;
+            EntityGoalsUpdated = entityGoalsUpdated;
+            EntityGoalsDeleted = entityGoalsDeleted;
         }
 
         public FantasySim.Core.Time.GameTick PreviousTick { get; }
@@ -247,5 +330,7 @@ namespace FantasySim.Persistence.SQLite
         public int RelationshipsUpdated { get; }
         public int RelationshipTermsUpdated { get; }
         public int RelationshipTermsDeleted { get; }
+        public int EntityGoalsUpdated { get; }
+        public int EntityGoalsDeleted { get; }
     }
 }
