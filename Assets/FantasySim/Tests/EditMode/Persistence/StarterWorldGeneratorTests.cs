@@ -45,7 +45,6 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(result.RegionsInserted, Is.EqualTo(2));
             Assert.That(result.PartitionsInserted, Is.EqualTo(1));
             Assert.That(result.EntitiesInserted, Is.EqualTo(1));
-            Assert.That(result.NeedsInserted, Is.EqualTo(1));
 
             using SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection();
             Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM world_clock"), Is.EqualTo(1));
@@ -54,7 +53,6 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM simulation_partition_regions"), Is.EqualTo(2));
             Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM entities"), Is.EqualTo(1));
             Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM entity_positions"), Is.EqualTo(1));
-            Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM entity_needs"), Is.EqualTo(1));
             Assert.That(connection.ExecuteScalar<string>("SELECT template_key FROM entities"), Is.EqualTo("hero"));
             Assert.That(connection.ExecuteScalar<long>("SELECT age_ticks FROM entities"), Is.EqualTo(30L * 365L * 24L));
             Assert.That(connection.ExecuteScalar<int>("SELECT COUNT(*) FROM regions WHERE parent_id IS NOT NULL"), Is.EqualTo(1));

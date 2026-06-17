@@ -46,7 +46,6 @@ namespace FantasySim.Tests.EditMode.Persistence
             AssertTableExists(connection, "simulation_partition_regions");
             AssertTableExists(connection, "entities");
             AssertTableExists(connection, "entity_positions");
-            AssertTableExists(connection, "entity_needs");
             AssertTableExists(connection, "relationships");
             AssertTableExists(connection, "relationship_terms");
             AssertTableExists(connection, "world_events");

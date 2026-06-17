@@ -40,6 +40,8 @@ namespace FantasySim.Persistence.SQLite
             List<RegionState> regions = LoadRegions(connection, partition.Id);
             EnsureEntitiesHavePositions(connection);
             List<EntityState> entities = LoadEntities(connection, regions);
+            List<RelationshipState> relationships = LoadRelationships(connection, entities);
+            List<RelationshipTermState> relationshipTerms = LoadRelationshipTerms(connection, entities);
 
             var tickContext = new TickContext(
                 new GameTick(clock.GameTick),
@@ -51,7 +53,7 @@ namespace FantasySim.Persistence.SQLite
                 new GameTick(partition.LastTickGameTick)
             );
 
-            return new LoadedPartitionState(tickContext, regions, entities);
+            return new LoadedPartitionState(tickContext, regions, entities, relationships, relationshipTerms);
         }
 
         private static ClockRow LoadClock(SQLiteConnection connection)
@@ -169,15 +171,9 @@ namespace FantasySim.Persistence.SQLite
                           p.local_x AS LocalX,
                           p.local_y AS LocalY,
                           p.local_z AS LocalZ,
-                          p.heading_y AS HeadingY,
-                          n.entity_id AS NeedsEntityId,
-                          n.hunger AS Hunger,
-                          n.fatigue AS Fatigue,
-                          n.mood AS Mood,
-                          n.stress AS Stress
+                          p.heading_y AS HeadingY
                    FROM entities e
                    INNER JOIN entity_positions p ON p.entity_id = e.id
-                   LEFT JOIN entity_needs n ON n.entity_id = e.id
                    WHERE p.region_id IN ({regionPlaceholders})
                    ORDER BY e.id",
                 regionIds
@@ -186,16 +182,8 @@ namespace FantasySim.Persistence.SQLite
             var entities = new List<EntityState>(rows.Count);
             foreach (EntityRow row in rows)
             {
-                if (!row.NeedsEntityId.HasValue)
-                {
-                    throw new InvalidOperationException(
-                        $"Cannot load starter world because entity {row.Id} is missing needs."
-                    );
-                }
-
-                var entityId = new EntityId(row.Id);
                 entities.Add(new EntityState(
-                    entityId,
+                    new EntityId(row.Id),
                     row.TemplateKey,
                     row.DisplayName,
                     row.RaceKey,
@@ -207,18 +195,87 @@ namespace FantasySim.Persistence.SQLite
                     row.LocalX,
                     row.LocalY,
                     row.LocalZ,
-                    row.HeadingY,
-                    new EntityNeedsState(
-                        entityId,
-                        row.Hunger.GetValueOrDefault(),
-                        row.Fatigue.GetValueOrDefault(),
-                        row.Mood.GetValueOrDefault(),
-                        row.Stress.GetValueOrDefault()
-                    )
+                    row.HeadingY
                 ));
             }
 
             return entities;
+        }
+
+        private static List<RelationshipState> LoadRelationships(SQLiteConnection connection, IReadOnlyList<EntityState> entities)
+        {
+            if (entities.Count == 0)
+            {
+                return new List<RelationshipState>();
+            }
+
+            string entityPlaceholders = string.Join(", ", entities.Select(_ => "?"));
+            object[] entityIds = entities.Select(entity => (object)entity.Id.Value).ToArray();
+            object[] parameters = entityIds.Concat(entityIds).ToArray();
+
+            List<RelationshipRow> rows = connection.Query<RelationshipRow>(
+                $@"SELECT subject_entity_id AS SubjectEntityId,
+                          target_entity_id AS TargetEntityId,
+                          opinion AS Opinion,
+                          familiarity AS Familiarity,
+                          updated_game_tick AS UpdatedGameTick
+                   FROM relationships
+                   WHERE subject_entity_id IN ({entityPlaceholders})
+                     AND target_entity_id IN ({entityPlaceholders})
+                   ORDER BY subject_entity_id, target_entity_id",
+                parameters
+            );
+
+            return rows.Select(row => new RelationshipState(
+                new RelationshipKey(
+                    new EntityId(row.SubjectEntityId),
+                    new EntityId(row.TargetEntityId)
+                ),
+                row.Opinion,
+                row.Familiarity,
+                new GameTick(row.UpdatedGameTick)
+            )).ToList();
+        }
+
+        private static List<RelationshipTermState> LoadRelationshipTerms(SQLiteConnection connection, IReadOnlyList<EntityState> entities)
+        {
+            if (entities.Count == 0)
+            {
+                return new List<RelationshipTermState>();
+            }
+
+            string entityPlaceholders = string.Join(", ", entities.Select(_ => "?"));
+            object[] entityIds = entities.Select(entity => (object)entity.Id.Value).ToArray();
+            object[] parameters = entityIds.Concat(entityIds).ToArray();
+
+            List<RelationshipTermRow> rows = connection.Query<RelationshipTermRow>(
+                $@"SELECT id AS Id,
+                          subject_entity_id AS SubjectEntityId,
+                          target_entity_id AS TargetEntityId,
+                          type AS Type,
+                          value AS Value,
+                          decay_per_tick AS DecayPerTick,
+                          expires_game_tick AS ExpiresGameTick,
+                          payload_json AS PayloadJson
+                   FROM relationship_terms
+                   WHERE subject_entity_id IN ({entityPlaceholders})
+                     AND target_entity_id IN ({entityPlaceholders})
+                   ORDER BY subject_entity_id, target_entity_id, id",
+                parameters
+            );
+
+            return rows.Select(row => new RelationshipTermState(
+                row.Id,
+                new RelationshipKey(
+                    new EntityId(row.SubjectEntityId),
+                    new EntityId(row.TargetEntityId)
+                ),
+                row.Type,
+                row.Value,
+                row.DecayPerTick,
+                row.ExpiresGameTick.HasValue ? new GameTick(row.ExpiresGameTick.Value) : (GameTick?)null,
+                row.PayloadJson
+            )).ToList();
         }
 
         public sealed class ClockRow
@@ -265,16 +322,32 @@ namespace FantasySim.Persistence.SQLite
             public float? LocalY { get; set; }
             public float? LocalZ { get; set; }
             public float? HeadingY { get; set; }
-            public long? NeedsEntityId { get; set; }
-            public float? Hunger { get; set; }
-            public float? Fatigue { get; set; }
-            public float? Mood { get; set; }
-            public float? Stress { get; set; }
         }
 
         public sealed class MissingEntityPositionRow
         {
             public long Id { get; set; }
+        }
+
+        public sealed class RelationshipRow
+        {
+            public long SubjectEntityId { get; set; }
+            public long TargetEntityId { get; set; }
+            public int Opinion { get; set; }
+            public int Familiarity { get; set; }
+            public long UpdatedGameTick { get; set; }
+        }
+
+        public sealed class RelationshipTermRow
+        {
+            public long Id { get; set; }
+            public long SubjectEntityId { get; set; }
+            public long TargetEntityId { get; set; }
+            public string Type { get; set; }
+            public int Value { get; set; }
+            public double DecayPerTick { get; set; }
+            public long? ExpiresGameTick { get; set; }
+            public string PayloadJson { get; set; }
         }
     }
 }

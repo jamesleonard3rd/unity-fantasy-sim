@@ -7,8 +7,7 @@ namespace FantasySim.Persistence.SQLite
             string message,
             int regionsInserted,
             int partitionsInserted,
-            int entitiesInserted,
-            int needsInserted
+            int entitiesInserted
         )
         {
             Generated = generated;
@@ -16,7 +15,6 @@ namespace FantasySim.Persistence.SQLite
             RegionsInserted = regionsInserted;
             PartitionsInserted = partitionsInserted;
             EntitiesInserted = entitiesInserted;
-            NeedsInserted = needsInserted;
         }
 
         public bool Generated { get; }
@@ -24,6 +22,5 @@ namespace FantasySim.Persistence.SQLite
         public int RegionsInserted { get; }
         public int PartitionsInserted { get; }
         public int EntitiesInserted { get; }
-        public int NeedsInserted { get; }
     }
 }

@@ -22,14 +22,12 @@ namespace FantasySim.Persistence.SQLite
                     "Starter world generation skipped because save-state rows already exist.",
                     0,
                     0,
-                    0,
                     0
                 );
             }
 
             int regionsInserted = 0;
             int entitiesInserted = 0;
-            int needsInserted = 0;
 
             connection.RunInTransaction(() =>
             {
@@ -116,17 +114,6 @@ namespace FantasySim.Persistence.SQLite
                         entityId,
                         regionIdsByKey[entityTemplate.regionKey]
                     );
-
-                    connection.Execute(
-                        @"INSERT INTO entity_needs (entity_id, hunger, fatigue, mood, stress)
-                          VALUES (?, ?, ?, ?, ?)",
-                        entityId,
-                        0.2f,
-                        0.2f,
-                        0.6f,
-                        0.1f
-                    );
-                    needsInserted++;
                 }
             });
 
@@ -135,8 +122,7 @@ namespace FantasySim.Persistence.SQLite
                 "Starter world generated.",
                 regionsInserted,
                 1,
-                entitiesInserted,
-                needsInserted
+                entitiesInserted
             );
         }
 

@@ -65,14 +65,6 @@ namespace FantasySim.Persistence.Migrations
                         FOREIGN KEY (entity_id) REFERENCES entities(id) ON DELETE CASCADE,
                         FOREIGN KEY (region_id) REFERENCES regions(id)
                     )",
-                    @"CREATE TABLE IF NOT EXISTS entity_needs (
-                        entity_id INTEGER PRIMARY KEY,
-                        hunger REAL NOT NULL,
-                        fatigue REAL NOT NULL,
-                        mood REAL NOT NULL,
-                        stress REAL NOT NULL,
-                        FOREIGN KEY (entity_id) REFERENCES entities(id) ON DELETE CASCADE
-                    )",
                     @"CREATE TABLE IF NOT EXISTS relationships (
                         subject_entity_id INTEGER NOT NULL,
                         target_entity_id INTEGER NOT NULL,

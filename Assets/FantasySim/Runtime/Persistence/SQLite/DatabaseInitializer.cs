@@ -18,7 +18,6 @@ namespace FantasySim.Persistence.SQLite
             "simulation_partition_regions",
             "entities",
             "entity_positions",
-            "entity_needs",
             "relationships",
             "relationship_terms",
             "world_events"

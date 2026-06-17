@@ -36,8 +36,7 @@ namespace FantasySim.Editor.DatabaseTools
                 $"Database: {initializer.DatabasePath}\n" +
                 $"Regions inserted: {result.RegionsInserted}\n" +
                 $"Partitions inserted: {result.PartitionsInserted}\n" +
-                $"Entities inserted: {result.EntitiesInserted}\n" +
-                $"Needs inserted: {result.NeedsInserted}"
+                $"Entities inserted: {result.EntitiesInserted}"
             );
         }
 

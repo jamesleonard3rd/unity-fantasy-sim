@@ -2,11 +2,11 @@
   "name": "FantasySim.Editor",
   "rootNamespace": "FantasySim.Editor",
   "references": [
-    "FantasySim.Core",
-    "FantasySim.Content",
-    "FantasySim.Persistence",
-    "FantasySim.Simulation",
-    "FantasySim.Session"
+    "GUID:819017c21424e4fc48bcbfdc9dd0997b",
+    "GUID:e568768b9c97f4bfab29a71a6e2e03b0",
+    "GUID:ba30843cc3f114fd5bc08371c31ac343",
+    "GUID:4ef50e326ce8f4f66a195eb4c06ae514",
+    "GUID:01cc7d97dd1bb46ac8d36ed0159db2db"
   ],
   "includePlatforms": [
     "Editor"

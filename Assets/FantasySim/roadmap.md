@@ -37,16 +37,21 @@ Implemented:
   connection setup, database initialization, migration execution, and database
   status reporting. It can now generate the first starter-world save-state rows
   from a validated `ContentCatalog`.
-- `Assets/FantasySim/Runtime/Simulation/` and
-  `Assets/FantasySim/Runtime/Session/` exist as assembly boundaries for later
-  work, but intentionally do not contain gameplay systems yet.
+- `Assets/FantasySim/Runtime/Simulation/` contains the first pure tick path:
+  runtime state DTOs, a starter simulation pipeline, a
+  `RelationshipDynamicsSystem` that decays relationship terms and recalculates
+  cached opinions, and a `RegionHeartbeatSystem` that emits a
+  low-significance `region.tick` event. `Assets/FantasySim/Runtime/Session/`
+  remains an assembly boundary for later session orchestration.
 - `Assets/FantasySim/Editor/DatabaseTools/` exposes editor menu items for
   validating game data, rebuilding the development database, generating the
   starter world, and inspecting database status.
 - `Assets/FantasySim/Tests/EditMode/` contains initial foundation tests for
   database initialization, migration idempotency, foreign keys, content key
   validation, JSON loading, reference validation, catalog creation, validation
-  report formatting, and starter-world generation/idempotency.
+  report formatting, starter-world generation/idempotency, partition loading,
+  relationship loading, relationship delta persistence, relationship dynamics,
+  heartbeat simulation, and heartbeat event persistence.
 - `Assets/DB.cs` is now only a temporary bootstrap component that delegates to
   `DatabaseInitializer`.
 
@@ -67,29 +72,33 @@ Current verification:
 - `Fantasy Sim/Validate Game Data` builds the catalog and logs counts plus
   actionable validation messages.
 - `Fantasy Sim/Database/Generate Starter World` writes the initial clock,
-  regions, starter simulation partition, entity rows, positions, and default
-  needs into the development database when it is empty.
-- Minimal runtime state DTOs now represent a loaded partition in memory.
+  regions, starter simulation partition, entity rows, and positions into the
+  development database when it is empty.
+- Runtime state DTOs now represent a loaded partition in memory, including
+  relationship rows, relationship terms, and relationship delta payloads.
 - `StarterWorldReadRepository` loads the generated `starter_world` partition,
-  including regions, entities, positions, needs, and clock context.
+  including regions, entities, positions, relationship pairs, relationship
+  terms, and clock context.
+- `Fantasy Sim/Simulation/Tick Starter World` loads the starter partition, runs
+  relationship dynamics ahead of the heartbeat, persists changed relationship
+  opinions/terms plus events, and advances the world clock.
 - The development starter world has been generated from the editor menu, and
   database status reports nonzero counts for generated world tables.
-- CLI EditMode test execution for the loaded-partition tests was attempted, but
+- CLI EditMode test execution for the relationship milestone was attempted, but
   Unity batchmode was blocked because another Unity instance has this project
   open. Re-run from the Unity Editor/Test Runner or after closing the open
   Editor instance.
 
 Next immediate milestone:
 
-1. Add a tiny pure simulation pipeline with one `RegionHeartbeatSystem` that
-   appends a low-significance `region.tick` event to the delta.
-2. Add a SQLite write repository that persists heartbeat events to
-   `world_events` and advances `world_clock.game_tick`.
-3. Add an editor menu item such as `Fantasy Sim/Simulation/Tick Starter World`
-   that loads the starter partition, runs one heartbeat tick, writes the delta,
-   and logs the tick/event count.
-4. Cover the heartbeat system and write path with focused EditMode
-   tests before adding more simulation systems.
+1. Seed starter-world relationships and permanent kinship/house terms from
+   entity template metadata so generated worlds have meaningful social state.
+2. Add the first `GoalScoringSystem` data model and runtime system, keeping goal
+   state typed and delta-tracked like relationships.
+3. Extend the SQLite load/write path for active goal rows without rewriting
+   unchanged entities or unrelated relationships.
+4. Cover seeded relationship data, goal loading, deterministic goal scoring, and
+   goal delta writes with focused EditMode tests.
 
 ---
 
@@ -104,8 +113,8 @@ local AI, perception, and moment-to-moment state.
 
 All other regions are simulated at a coarse interval while the player session is
 active. Coarse simulation should be good enough to make the world feel alive when
-the player travels: relationships drift, needs change, factions maneuver, schools
-enroll or graduate students, NPCs age, events happen, and summaries can be shown
+the player travels: relationships drift, factions maneuver, schools enroll or
+graduate students, NPCs age, events happen, and summaries can be shown
 on region entry.
 
 Persistence stores saved state between sessions. It should not be treated as the
@@ -551,13 +560,6 @@ Suggested schema groups:
   - `local_z REAL NULL`
   - `heading_y REAL NULL`
 
-- `entity_needs`
-  - `entity_id INTEGER PRIMARY KEY`
-  - `hunger REAL NOT NULL`
-  - `fatigue REAL NOT NULL`
-  - `mood REAL NOT NULL`
-  - `stress REAL NOT NULL`
-
 - `entity_goals`
   - `id INTEGER PRIMARY KEY`
   - `entity_id INTEGER NOT NULL`
@@ -659,7 +661,6 @@ public sealed class RegionState
     public SimulationPartitionRecord Partition { get; init; }
     public List<EntityRecord> Entities { get; } = new();
     public Dictionary<EntityId, int> EntityIndexById { get; } = new();
-    public Dictionary<EntityId, EntityNeedsRecord> NeedsByEntityId { get; } = new();
     public List<RelationshipRecord> Relationships { get; } = new();
     public List<RelationshipTermRecord> RelationshipTerms { get; } = new();
 
@@ -669,7 +670,6 @@ public sealed class RegionState
 public sealed class RegionStateDelta
 {
     public HashSet<EntityId> UpdatedEntities { get; } = new();
-    public HashSet<EntityId> UpdatedNeeds { get; } = new();
     public HashSet<RelationshipKey> UpdatedRelationships { get; } = new();
     public HashSet<long> UpdatedRelationshipTerms { get; } = new();
     public List<PendingWorldEvent> Events { get; } = new();
@@ -906,7 +906,6 @@ A coarse tick should follow the same shape every time:
 2. Load region working set.
    - Region row.
    - Entities in the region.
-   - Needs for those entities.
    - Goals for those entities.
    - Faction memberships.
    - Relationships where both sides are in the region.
@@ -921,7 +920,6 @@ A coarse tick should follow the same shape every time:
    - Configuration values.
 
 4. Run systems in a fixed order.
-   - Needs.
    - Relationship dynamics.
    - Goal scoring.
    - Pairwise interactions.
@@ -936,7 +934,6 @@ A coarse tick should follow the same shape every time:
    - Events should be meaningful enough for UI or summaries.
 
 6. Write changed state.
-   - Updated needs rows.
    - Updated relationship rows.
    - Updated relationship term rows.
    - Updated goals.
@@ -992,56 +989,17 @@ rows.
 
 Recommended initial system order:
 
-1. `NeedsSystem`
-2. `RelationshipDynamicsSystem`
-3. `GoalScoringSystem`
-4. `PairwiseInteractionSystem`
-5. `FactionPoliticsSystem`
-6. `SchoolLifecycleSystem`
-7. `AgingLifecycleSystem`
-8. `RegionHeartbeatSystem`
+1. `RelationshipDynamicsSystem`
+2. `GoalScoringSystem`
+3. `PairwiseInteractionSystem`
+4. `FactionPoliticsSystem`
+5. `SchoolLifecycleSystem`
+6. `AgingLifecycleSystem`
+7. `RegionHeartbeatSystem`
 
 The heartbeat system is useful during early development because it proves the
 tick path works even before gameplay systems are interesting. It can emit a low
 significance `region.tick` event.
-
----
-
-## 15. Needs System
-
-Purpose:
-
-- Drift hunger, fatigue, mood, and stress over time.
-- Let traits, race, faction role, and current goals modify rates.
-- Produce event hooks when needs cross important thresholds.
-
-Implementation steps:
-
-1. Add `entity_needs` table.
-2. Seed default needs for every generated NPC.
-3. Load needs into `RegionState`.
-4. Create `NeedsSystem`.
-5. For each entity:
-   - Increase hunger over elapsed ticks.
-   - Increase fatigue over elapsed ticks.
-   - Move mood toward a baseline.
-   - Modify stress based on faction or relationship context.
-6. Clamp values to valid ranges.
-7. Record updated needs in `RegionStateDelta` only if values changed.
-8. Emit events for meaningful threshold crossings:
-   - `needs.hungry`
-   - `needs.exhausted`
-   - `needs.miserable`
-   - `needs.recovered`
-
-Acceptance criteria:
-
-- A pure EditMode test can create a `RegionState`, run `NeedsSystem`, and assert
-  changed needs.
-- The tick pipeline writes changed needs to SQLite.
-- No Unity scene is needed to test it.
-
----
 
 ## 16. Relationship Dynamics System
 
@@ -1083,7 +1041,7 @@ Acceptance criteria:
 Purpose:
 
 - Give each NPC a small set of active goals.
-- Score goals based on needs, traits, relationships, faction role, and region.
+- Score goals based on traits, relationships, faction role, and region.
 - Pick a primary goal for the coarse tick.
 - Let the selected goal affect state.
 
@@ -1267,8 +1225,8 @@ Contract:
    - Stop coarse ticks for that region or its containing partition.
    - Load region state from runtime memory or SQLite.
    - Spawn GameObjects for relevant entities.
-   - Apply last known positions, needs, relationships, faction state, and local
-     event summaries.
+   - Apply last known positions, relationships, faction state, and local event
+     summaries.
 
 2. While inside the region:
    - Unity GameObjects and live AI own moment-to-moment behavior.
@@ -1309,10 +1267,6 @@ Core components:
 - `ActorVitals`
   - Health, stamina, temporary combat state.
   - Converts to durable state only at save boundaries.
-
-- `ActorNeedsAdapter`
-  - Presents hunger/fatigue/mood in live gameplay.
-  - Periodically syncs from runtime model, not SQLite.
 
 - `ActorRelationshipAdapter`
   - Gives dialogue/AI access to opinions.
@@ -1471,8 +1425,8 @@ Build these tools in order:
 
 5. **Entity Inspector**
    - Search by name.
-   - Show traits, faction memberships, needs, goals, relationships, items,
-     abilities, and current region.
+   - Show traits, faction memberships, goals, relationships, items, abilities,
+     and current region.
 
 6. **Event Log Viewer**
    - Filter by region, entity, kind, significance, and tick range.
@@ -1492,7 +1446,6 @@ EditMode tests:
 - Migrations create every table.
 - Starter world generation is idempotent.
 - Repositories load and write expected rows.
-- Needs system mutates needs correctly.
 - Relationship system decays terms and clamps opinions.
 - Goal scoring selects expected goals.
 - Pairwise interaction caps candidate counts.
@@ -1547,7 +1500,6 @@ load it again.
    - `regions`
    - `entities`
    - `entity_positions`
-   - `entity_needs`
    - `relationships`
    - `relationship_terms`
    - `world_events`
@@ -1564,30 +1516,36 @@ load it again.
    display-name validation, and first-slice reference validation.**
 8. Implement `ContentCatalog` creation from JSON. **Done for the first slice;
    `ContentCatalogBuilder` populates the catalog from loaded definitions.**
-9. Implement starter world generation:
+9. Implement starter world generation: **Started for the first generated
+   save-state slice.**
    - Create 3 regions.
    - Create 3 matching simulation partitions.
    - Create 50 NPCs.
    - Assign NPCs to regions.
-   - Give each NPC basic needs.
    - Give some NPCs relationships.
-10. Implement `RegionState`.
-11. Implement `RegionStateDelta`.
-12. Implement `RegionStateRepository.Load(partitionId)`.
-13. Implement delta tracking.
-14. Implement `RegionStateRepository.Write(state.Delta)`.
-15. Implement `TickContext`.
-16. Implement `RegionHeartbeatSystem`.
-17. Implement `NeedsSystem`.
-18. Implement `RelationshipDynamicsSystem`.
-19. Implement `RegionSimulationService.TickPartition(partitionId)`.
-20. Implement debug editor button: tick selected partition.
-21. Implement `CoarseRegionScheduler`.
-22. Implement event log viewer.
-23. Implement one live test scene.
-24. Spawn NPC placeholders from region state.
-25. Save NPC positions on exit through live-region delta write-back.
-26. Reload session and verify persisted state.
+10. Implement `RegionState`. **Done for the current partition state slice.**
+11. Implement `RegionStateDelta`. **Done for events and relationship deltas.**
+12. Implement `RegionStateRepository.Load(partitionId)`. **Done as
+    `StarterWorldReadRepository.LoadPartition`.**
+13. Implement delta tracking. **Started with event, relationship, and
+    relationship-term deltas.**
+14. Implement `RegionStateRepository.Write(state.Delta)`. **Done for heartbeat
+    events, relationship rows, relationship terms, deleted relationship terms,
+    and clock advancement.**
+15. Implement `TickContext`. **Done for current tick, partition metadata, and
+    clock settings.**
+16. Implement `RegionHeartbeatSystem`. **Done.**
+17. Implement `RelationshipDynamicsSystem`. **Done for deterministic term decay,
+    expiry, opinion recalculation, clamping, significant events, and pipeline
+    ordering ahead of heartbeat.**
+18. Implement `RegionSimulationService.TickPartition(partitionId)`.
+19. Implement debug editor button: tick selected partition.
+20. Implement `CoarseRegionScheduler`.
+21. Implement event log viewer.
+22. Implement one live test scene.
+23. Spawn NPC placeholders from region state.
+24. Save NPC positions on exit through live-region delta write-back.
+25. Reload session and verify persisted state.
 
 ### Done Criteria
 
@@ -1595,15 +1553,19 @@ load it again.
   verify from an authenticated Unity Editor session.**
 - JSON definitions load into a `ContentCatalog` without manual SQL. **Implemented
   for first-slice content; verify in an authenticated Unity Editor session.**
-- A partition tick changes at least one persisted value.
-- A partition tick appends at least one event.
+- A partition tick changes at least one persisted value. **Implemented for
+  relationship opinions/terms when relationship deltas are present.**
+- A partition tick appends at least one event. **Implemented by heartbeat and
+  significant relationship opinion changes.**
 - The scheduler can tick unloaded partitions while a session is active.
 - The scheduler skips the live region.
 - The player can enter and exit one region scene.
 - NPC positions persist across restart.
 - EditMode tests cover JSON validation, content catalog generation, repository
-  load/write, and the first simulation systems. **Foundation and first-slice
-  content tests exist; repository and simulation tests are still pending.**
+  load/write, and the first simulation systems. **Foundation, first-slice
+  content, starter-world repository, heartbeat, and relationship dynamics tests
+  exist; rerun the latest relationship tests from Unity after closing the open
+  Editor instance that blocks batchmode.**
 
 ---
 
@@ -1611,61 +1573,56 @@ load it again.
 
 Build in this order:
 
-1. **Needs**
-   - Hunger, fatigue, mood, stress.
-   - Trait modifiers.
-   - Basic threshold events.
-
-2. **Relationship Terms**
+1. **Relationship Terms**
    - Explainable opinion.
    - Temporary decay.
    - Kinship terms.
    - Faction terms.
 
-3. **Goals**
+2. **Goals**
    - Active goals per entity.
    - Utility scoring.
    - Primary goal outcome.
 
-4. **Pairwise Interactions**
+3. **Pairwise Interactions**
    - Candidate selection.
    - Relationship changes.
    - Gossip and conflict.
 
-5. **Faction Politics**
+4. **Faction Politics**
    - Faction reputation.
    - House influence.
    - School/guild/order relationships.
 
-6. **School Lifecycle**
+5. **School Lifecycle**
    - Enrollment.
    - Study progress.
    - Graduation.
    - Ability unlocks.
 
-7. **Travel**
+6. **Travel**
    - Prebuilt `TravelGraph`.
    - Local travel inside cities/castles.
    - NPC relocation.
    - Player region transitions.
 
-8. **World Processes**
+7. **World Processes**
    - Shared process/activity layer for long-running structures.
    - First candidates: tournaments, school terms, faction campaigns, and travel
      plans.
    - Keep the abstraction small until at least two systems genuinely share it.
 
-9. **Birth, Death, Aging**
+8. **Birth, Death, Aging**
    - Long-term persistence.
    - Family relationships.
    - Historical event trail.
 
-10. **Live AI Integration**
+9. **Live AI Integration**
 
 - Translate coarse goals into live behaviors.
 - Let live actions create relationship terms and events.
 
-11. **Player-Facing UI**
+10. **Player-Facing UI**
     - Region summary.
     - NPC details.
     - Event history.
@@ -1813,7 +1770,7 @@ If picking this up cold:
 10. Implement `RegionStateDelta`.
 11. Implement load/write repositories.
 12. Implement one heartbeat tick.
-13. Add needs and relationship dynamics.
+13. Add relationship dynamics.
 14. Add editor buttons for validate, rebuild DB, tick partition, and view events.
 15. Create one live region scene.
 16. Spawn placeholder NPCs.
@@ -1836,7 +1793,7 @@ roadmap when:
 - Immutable definitions are available through a `ContentCatalog`.
 - SQLite schema and migrations are owned by Unity.
 - A fresh database can be created from zero.
-- A generated world contains regions, entities, factions, traits, stats, needs,
+- A generated world contains regions, entities, factions, traits, stats,
   relationships, and world clock state.
 - Coarse unloaded-region ticks run during an active session.
 - Simulation systems are pure C# and testable without scenes.

@@ -59,10 +59,6 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(entity.TemplateKey, Is.EqualTo("hero"));
             Assert.That(entity.RegionId.Value, Is.EqualTo(childRegion.Id.Value));
             Assert.That(entity.AgeTicks, Is.EqualTo(30L * 365L * 24L));
-            Assert.That(entity.Needs.Hunger, Is.EqualTo(0.2f));
-            Assert.That(entity.Needs.Fatigue, Is.EqualTo(0.2f));
-            Assert.That(entity.Needs.Mood, Is.EqualTo(0.6f));
-            Assert.That(entity.Needs.Stress, Is.EqualTo(0.1f));
         }
 
         [Test]
@@ -138,15 +134,6 @@ namespace FantasySim.Tests.EditMode.Persistence
                     outsideEntityId,
                     outsideRegionId
                 );
-                connection.Execute(
-                    @"INSERT INTO entity_needs (entity_id, hunger, fatigue, mood, stress)
-                      VALUES (?, ?, ?, ?, ?)",
-                    outsideEntityId,
-                    0.1f,
-                    0.1f,
-                    0.5f,
-                    0.1f
-                );
             }
 
             var repository = new StarterWorldReadRepository(pathProvider);
@@ -156,6 +143,113 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(state.Regions.Select(region => region.Key), Does.Not.Contain("outside_region"));
             Assert.That(state.Entities.Select(entity => entity.TemplateKey), Does.Not.Contain("outsider"));
             Assert.That(state.Entities, Has.Count.EqualTo(1));
+        }
+
+        [Test]
+        public void LoadStarterWorldHydratesRelationshipsAndTermsForLoadedEntities()
+        {
+            var initializer = new DatabaseInitializer(pathProvider);
+            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
+            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
+            {
+                long childRegionId = connection.ExecuteScalar<long>("SELECT id FROM regions WHERE key = ?", "child_region");
+                long heroId = connection.ExecuteScalar<long>("SELECT id FROM entities WHERE template_key = ?", "hero");
+                long allyId = InsertEntity(connection, "ally", "Ally", childRegionId);
+                connection.Execute(
+                    @"INSERT INTO relationships (
+                        subject_entity_id,
+                        target_entity_id,
+                        opinion,
+                        familiarity,
+                        updated_game_tick
+                      )
+                      VALUES (?, ?, ?, ?, ?)",
+                    heroId,
+                    allyId,
+                    12,
+                    4,
+                    7L
+                );
+                connection.Execute(
+                    @"INSERT INTO relationship_terms (
+                        subject_entity_id,
+                        target_entity_id,
+                        type,
+                        value,
+                        decay_per_tick,
+                        expires_game_tick,
+                        payload_json
+                      )
+                      VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    heroId,
+                    allyId,
+                    "favor",
+                    12,
+                    0.5,
+                    20L,
+                    "{\"source\":\"test\"}"
+                );
+            }
+            var repository = new StarterWorldReadRepository(pathProvider);
+
+            LoadedPartitionState state = repository.LoadStarterWorld();
+
+            Assert.That(state.Relationships, Has.Count.EqualTo(1));
+            RelationshipState relationship = state.Relationships.Single();
+            Assert.That(relationship.Key.SubjectEntityId.Value, Is.EqualTo(state.Entities.Single(entity => entity.TemplateKey == "hero").Id.Value));
+            Assert.That(relationship.Key.TargetEntityId.Value, Is.EqualTo(state.Entities.Single(entity => entity.TemplateKey == "ally").Id.Value));
+            Assert.That(relationship.Opinion, Is.EqualTo(12));
+            Assert.That(relationship.Familiarity, Is.EqualTo(4));
+            Assert.That(relationship.UpdatedTick.Value, Is.EqualTo(7L));
+
+            Assert.That(state.RelationshipTerms, Has.Count.EqualTo(1));
+            RelationshipTermState term = state.RelationshipTerms.Single();
+            Assert.That(term.Key.SubjectEntityId.Value, Is.EqualTo(relationship.Key.SubjectEntityId.Value));
+            Assert.That(term.Key.TargetEntityId.Value, Is.EqualTo(relationship.Key.TargetEntityId.Value));
+            Assert.That(term.Type, Is.EqualTo("favor"));
+            Assert.That(term.Value, Is.EqualTo(12));
+            Assert.That(term.DecayPerTick, Is.EqualTo(0.5));
+            Assert.That(term.ExpiresTick.HasValue, Is.True);
+            Assert.That(term.ExpiresTick.Value.Value, Is.EqualTo(20L));
+            Assert.That(term.PayloadJson, Is.EqualTo("{\"source\":\"test\"}"));
+        }
+
+        [Test]
+        public void LoadStarterWorldFiltersRelationshipsWhenEitherEntityIsOutsidePartition()
+        {
+            var initializer = new DatabaseInitializer(pathProvider);
+            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
+            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
+            {
+                long childRegionId = connection.ExecuteScalar<long>("SELECT id FROM regions WHERE key = ?", "child_region");
+                long heroId = connection.ExecuteScalar<long>("SELECT id FROM entities WHERE template_key = ?", "hero");
+                long allyId = InsertEntity(connection, "ally", "Ally", childRegionId);
+                connection.Execute(
+                    @"INSERT INTO regions (key, display_name, type, tick_interval_seconds)
+                      VALUES (?, ?, ?, ?)",
+                    "outside_region",
+                    "Outside Region",
+                    "region",
+                    180f
+                );
+                long outsideRegionId = connection.ExecuteScalar<long>("SELECT last_insert_rowid()");
+                long outsiderId = InsertEntity(connection, "outsider", "Outsider", outsideRegionId);
+
+                InsertRelationship(connection, heroId, allyId, 5);
+                InsertRelationship(connection, heroId, outsiderId, 90);
+                InsertRelationship(connection, outsiderId, heroId, -90);
+                InsertRelationshipTerm(connection, heroId, allyId, 5);
+                InsertRelationshipTerm(connection, heroId, outsiderId, 90);
+                InsertRelationshipTerm(connection, outsiderId, heroId, -90);
+            }
+            var repository = new StarterWorldReadRepository(pathProvider);
+
+            LoadedPartitionState state = repository.LoadStarterWorld();
+
+            Assert.That(state.Relationships, Has.Count.EqualTo(1));
+            Assert.That(state.RelationshipTerms, Has.Count.EqualTo(1));
+            Assert.That(state.Relationships.Single().Opinion, Is.EqualTo(5));
+            Assert.That(state.RelationshipTerms.Single().Value, Is.EqualTo(5));
         }
 
         [Test]
@@ -171,24 +265,6 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(entity.LocalY.HasValue, Is.False);
             Assert.That(entity.LocalZ.HasValue, Is.False);
             Assert.That(entity.HeadingY.HasValue, Is.False);
-        }
-
-        [Test]
-        public void LoadStarterWorldFailsWhenEntityNeedsAreMissing()
-        {
-            var initializer = new DatabaseInitializer(pathProvider);
-            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
-            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
-            {
-                connection.Execute("DELETE FROM entity_needs");
-            }
-            var repository = new StarterWorldReadRepository(pathProvider);
-
-            InvalidOperationException exception = Assert.Throws<InvalidOperationException>(
-                () => repository.LoadStarterWorld()
-            );
-
-            Assert.That(exception.Message, Does.Contain("missing needs"));
         }
 
         [Test]
@@ -325,6 +401,67 @@ namespace FantasySim.Tests.EditMode.Persistence
             );
 
             return new ContentCatalogBuildResult(catalog, ContentValidationResult.Success);
+        }
+
+        private static long InsertEntity(SQLiteConnection connection, string templateKey, string displayName, long regionId)
+        {
+            connection.Execute(
+                @"INSERT INTO entities (template_key, display_name, race_key, subrace_key, age_ticks)
+                  VALUES (?, ?, ?, ?, ?)",
+                templateKey,
+                displayName,
+                "human",
+                "standard_human",
+                10L
+            );
+            long entityId = connection.ExecuteScalar<long>("SELECT last_insert_rowid()");
+            connection.Execute(
+                "INSERT INTO entity_positions (entity_id, region_id) VALUES (?, ?)",
+                entityId,
+                regionId
+            );
+            return entityId;
+        }
+
+        private static void InsertRelationship(SQLiteConnection connection, long subjectId, long targetId, int opinion)
+        {
+            connection.Execute(
+                @"INSERT INTO relationships (
+                    subject_entity_id,
+                    target_entity_id,
+                    opinion,
+                    familiarity,
+                    updated_game_tick
+                  )
+                  VALUES (?, ?, ?, ?, ?)",
+                subjectId,
+                targetId,
+                opinion,
+                0,
+                0L
+            );
+        }
+
+        private static void InsertRelationshipTerm(SQLiteConnection connection, long subjectId, long targetId, int value)
+        {
+            connection.Execute(
+                @"INSERT INTO relationship_terms (
+                    subject_entity_id,
+                    target_entity_id,
+                    type,
+                    value,
+                    decay_per_tick,
+                    expires_game_tick,
+                    payload_json
+                  )
+                  VALUES (?, ?, ?, ?, ?, NULL, ?)",
+                subjectId,
+                targetId,
+                "test",
+                value,
+                0,
+                "{}"
+            );
         }
     }
 }

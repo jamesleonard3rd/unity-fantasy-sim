@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FantasySim.Core.Ids;
 using FantasySim.Core.Time;
@@ -43,24 +44,6 @@ namespace FantasySim.Simulation.State
         public GameTick? AuthorityUntilTick { get; }
     }
 
-    public sealed class EntityNeedsState
-    {
-        public EntityNeedsState(EntityId entityId, float hunger, float fatigue, float mood, float stress)
-        {
-            EntityId = entityId;
-            Hunger = hunger;
-            Fatigue = fatigue;
-            Mood = mood;
-            Stress = stress;
-        }
-
-        public EntityId EntityId { get; }
-        public float Hunger { get; }
-        public float Fatigue { get; }
-        public float Mood { get; }
-        public float Stress { get; }
-    }
-
     public sealed class EntityState
     {
         public EntityState(
@@ -76,8 +59,7 @@ namespace FantasySim.Simulation.State
             float? localX,
             float? localY,
             float? localZ,
-            float? headingY,
-            EntityNeedsState needs
+            float? headingY
         )
         {
             Id = id;
@@ -93,7 +75,6 @@ namespace FantasySim.Simulation.State
             LocalY = localY;
             LocalZ = localZ;
             HeadingY = headingY;
-            Needs = needs;
         }
 
         public EntityId Id { get; }
@@ -109,7 +90,6 @@ namespace FantasySim.Simulation.State
         public float? LocalY { get; }
         public float? LocalZ { get; }
         public float? HeadingY { get; }
-        public EntityNeedsState Needs { get; }
     }
 
     public sealed class TickContext
@@ -144,14 +124,59 @@ namespace FantasySim.Simulation.State
 
     public sealed class RegionStateDelta
     {
-        public RegionStateDelta(RegionId regionId, GameTick tick)
+        public RegionStateDelta(
+            RegionId regionId,
+            GameTick tick,
+            IReadOnlyList<PendingWorldEvent> events,
+            IReadOnlyList<RelationshipState> updatedRelationships = null,
+            IReadOnlyList<RelationshipTermState> updatedRelationshipTerms = null,
+            IReadOnlyList<long> deletedRelationshipTermIds = null
+        )
         {
             RegionId = regionId;
             Tick = tick;
+            Events = events ?? new List<PendingWorldEvent>();
+            UpdatedRelationships = updatedRelationships ?? new List<RelationshipState>();
+            UpdatedRelationshipTerms = updatedRelationshipTerms ?? new List<RelationshipTermState>();
+            DeletedRelationshipTermIds = deletedRelationshipTermIds ?? new List<long>();
         }
 
         public RegionId RegionId { get; }
         public GameTick Tick { get; }
+        public IReadOnlyList<PendingWorldEvent> Events { get; }
+        public IReadOnlyList<RelationshipState> UpdatedRelationships { get; }
+        public IReadOnlyList<RelationshipTermState> UpdatedRelationshipTerms { get; }
+        public IReadOnlyList<long> DeletedRelationshipTermIds { get; }
+    }
+
+    public sealed class PendingWorldEvent
+    {
+        public PendingWorldEvent(
+            RegionId? regionId,
+            string type,
+            int significance,
+            string payloadJson,
+            GameTick occurredTick,
+            EntityId? subjectEntityId = null,
+            EntityId? targetEntityId = null
+        )
+        {
+            RegionId = regionId;
+            Type = type;
+            Significance = significance;
+            PayloadJson = payloadJson;
+            OccurredTick = occurredTick;
+            SubjectEntityId = subjectEntityId;
+            TargetEntityId = targetEntityId;
+        }
+
+        public RegionId? RegionId { get; }
+        public string Type { get; }
+        public int Significance { get; }
+        public string PayloadJson { get; }
+        public GameTick OccurredTick { get; }
+        public EntityId? SubjectEntityId { get; }
+        public EntityId? TargetEntityId { get; }
     }
 
     public sealed class LoadedPartitionState
@@ -159,16 +184,104 @@ namespace FantasySim.Simulation.State
         public LoadedPartitionState(
             TickContext tickContext,
             IReadOnlyList<RegionState> regions,
-            IReadOnlyList<EntityState> entities
+            IReadOnlyList<EntityState> entities,
+            IReadOnlyList<RelationshipState> relationships = null,
+            IReadOnlyList<RelationshipTermState> relationshipTerms = null
         )
         {
             TickContext = tickContext;
             Regions = regions;
             Entities = entities;
+            Relationships = relationships ?? new List<RelationshipState>();
+            RelationshipTerms = relationshipTerms ?? new List<RelationshipTermState>();
         }
 
         public TickContext TickContext { get; }
         public IReadOnlyList<RegionState> Regions { get; }
         public IReadOnlyList<EntityState> Entities { get; }
+        public IReadOnlyList<RelationshipState> Relationships { get; }
+        public IReadOnlyList<RelationshipTermState> RelationshipTerms { get; }
+    }
+
+    public readonly struct RelationshipKey : IEquatable<RelationshipKey>
+    {
+        public RelationshipKey(EntityId subjectEntityId, EntityId targetEntityId)
+        {
+            SubjectEntityId = subjectEntityId;
+            TargetEntityId = targetEntityId;
+        }
+
+        public EntityId SubjectEntityId { get; }
+        public EntityId TargetEntityId { get; }
+
+        public bool Equals(RelationshipKey other)
+        {
+            return SubjectEntityId.Value == other.SubjectEntityId.Value
+                && TargetEntityId.Value == other.TargetEntityId.Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is RelationshipKey other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (SubjectEntityId.Value.GetHashCode() * 397) ^ TargetEntityId.Value.GetHashCode();
+            }
+        }
+    }
+
+    public sealed class RelationshipState
+    {
+        public RelationshipState(
+            RelationshipKey key,
+            int opinion,
+            int familiarity,
+            GameTick updatedTick
+        )
+        {
+            Key = key;
+            Opinion = opinion;
+            Familiarity = familiarity;
+            UpdatedTick = updatedTick;
+        }
+
+        public RelationshipKey Key { get; }
+        public int Opinion { get; }
+        public int Familiarity { get; }
+        public GameTick UpdatedTick { get; }
+    }
+
+    public sealed class RelationshipTermState
+    {
+        public RelationshipTermState(
+            long id,
+            RelationshipKey key,
+            string type,
+            int value,
+            double decayPerTick,
+            GameTick? expiresTick,
+            string payloadJson
+        )
+        {
+            Id = id;
+            Key = key;
+            Type = type;
+            Value = value;
+            DecayPerTick = decayPerTick;
+            ExpiresTick = expiresTick;
+            PayloadJson = payloadJson;
+        }
+
+        public long Id { get; }
+        public RelationshipKey Key { get; }
+        public string Type { get; }
+        public int Value { get; }
+        public double DecayPerTick { get; }
+        public GameTick? ExpiresTick { get; }
+        public string PayloadJson { get; }
     }
 }
