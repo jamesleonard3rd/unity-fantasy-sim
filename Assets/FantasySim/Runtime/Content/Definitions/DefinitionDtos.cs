@@ -67,6 +67,16 @@ namespace FantasySim.Content.Definitions
     }
 
     [Serializable]
+    public sealed class TravelEdgeDefinition
+    {
+        public string fromKey;
+        public string toKey;
+        public string mode;
+        public int baseTicks;
+        public bool bidirectional;
+    }
+
+    [Serializable]
     public sealed class EntityTemplateDefinition
     {
         public string key;

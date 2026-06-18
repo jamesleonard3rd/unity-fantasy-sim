@@ -38,10 +38,18 @@ namespace FantasySim.Simulation
                     continue;
                 }
 
+                IReadOnlyList<string> stepTypes = ParseStepTypes(goal.rawJson);
+                if (stepTypes.Count == 0)
+                {
+                    // Leaf goals (no authored substeps) act as a single primitive step equal to
+                    // their own type, so the goal advances through the matching step handler.
+                    stepTypes = new[] { goal.key };
+                }
+
                 progressions[goal.key] = new GoalProgressionDefinition(
                     goal.key,
                     goal.completionMode,
-                    ParseStepTypes(goal.rawJson)
+                    stepTypes
                 );
             }
 

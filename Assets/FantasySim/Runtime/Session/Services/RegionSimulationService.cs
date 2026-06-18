@@ -4,6 +4,7 @@ using FantasySim.Content.Catalog;
 using FantasySim.Persistence.SQLite;
 using FantasySim.Simulation;
 using FantasySim.Simulation.State;
+using FantasySim.Simulation.Travel;
 
 namespace FantasySim.Session
 {
@@ -65,7 +66,8 @@ namespace FantasySim.Session
             }
 
             var progressions = GoalProgressionParser.Parse(catalog.Goals.Values);
-            var goalAdvancementSystem = new GoalAdvancementSystem(progressions);
+            TravelGraph travelGraph = TravelGraph.Build(catalog);
+            var goalAdvancementSystem = new GoalAdvancementSystem(progressions, travelGraph);
             return new StarterWorldSimulationPipeline(goalAdvancementSystem: goalAdvancementSystem);
         }
     }

@@ -63,6 +63,39 @@ namespace FantasySim.Tests.EditMode.Content
         }
 
         [Test]
+        public void TravelEdgeLoaderNormalizesRealGameData()
+        {
+            string root = GameDataJsonPaths.DefaultRoot;
+
+            TravelEdgeDefinition gate = new TravelEdgeJsonLoader(GameDataJsonPaths.Regions(root))
+                .Load()
+                .Single(edge => edge.fromKey == "valemont_keep" && edge.toKey == "whisperwood_marches");
+
+            Assert.That(gate.mode, Is.EqualTo("gate"));
+            Assert.That(gate.baseTicks, Is.EqualTo(10));
+            Assert.That(gate.bidirectional, Is.True);
+        }
+
+        [Test]
+        public void TravelEdgeLoaderNormalizesEndpointKeysAndReportsNegativeCost()
+        {
+            string path = WriteJson("regions.json", @"{
+  ""regions"": [],
+  ""travel_edges"": [
+    { ""from"": ""Valemont Keep"", ""to"": ""whisperwood_marches"", ""mode"": ""gate"", ""base_ticks"": -1, ""bidirectional"": true }
+  ]
+}");
+            var loader = new TravelEdgeJsonLoader(path);
+
+            var edges = loader.Load();
+            var messages = loader.Validate(edges);
+
+            Assert.That(edges.Single().fromKey, Is.EqualTo("valemont_keep"));
+            Assert.That(edges.Single().toKey, Is.EqualTo("whisperwood_marches"));
+            Assert.That(messages.Any(message => message.Code == "content.invalid_definition"), Is.True);
+        }
+
+        [Test]
         public void RegionLoaderUsesDefaultTickIntervalWhenJsonOmitsIt()
         {
             string path = WriteJson("regions.json", @"{

@@ -109,6 +109,7 @@ namespace FantasySim.Simulation
             var updatedRelationshipTerms = new List<RelationshipTermState>();
             var deletedRelationshipTermIds = new List<long>();
             var deletedEntityGoalIds = new List<long>();
+            var updatedEntityPositions = new List<EntityRegionMove>();
 
             var orderedSources = new[]
             {
@@ -131,6 +132,7 @@ namespace FantasySim.Simulation
                 updatedRelationshipTerms.AddRange(source.UpdatedRelationshipTerms);
                 deletedRelationshipTermIds.AddRange(source.DeletedRelationshipTermIds);
                 deletedEntityGoalIds.AddRange(source.DeletedEntityGoalIds);
+                updatedEntityPositions.AddRange(source.UpdatedEntityPositions);
             }
 
             IReadOnlyList<EntityGoalState> updatedEntityGoals = MergeEntityGoals(
@@ -146,7 +148,8 @@ namespace FantasySim.Simulation
                 updatedRelationshipTerms,
                 deletedRelationshipTermIds,
                 updatedEntityGoals,
-                deletedEntityGoalIds
+                deletedEntityGoalIds,
+                updatedEntityPositions
             );
         }
 

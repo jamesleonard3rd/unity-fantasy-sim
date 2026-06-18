@@ -132,7 +132,8 @@ namespace FantasySim.Simulation.State
             IReadOnlyList<RelationshipTermState> updatedRelationshipTerms = null,
             IReadOnlyList<long> deletedRelationshipTermIds = null,
             IReadOnlyList<EntityGoalState> updatedEntityGoals = null,
-            IReadOnlyList<long> deletedEntityGoalIds = null
+            IReadOnlyList<long> deletedEntityGoalIds = null,
+            IReadOnlyList<EntityRegionMove> updatedEntityPositions = null
         )
         {
             RegionId = regionId;
@@ -143,6 +144,7 @@ namespace FantasySim.Simulation.State
             DeletedRelationshipTermIds = deletedRelationshipTermIds ?? new List<long>();
             UpdatedEntityGoals = updatedEntityGoals ?? new List<EntityGoalState>();
             DeletedEntityGoalIds = deletedEntityGoalIds ?? new List<long>();
+            UpdatedEntityPositions = updatedEntityPositions ?? new List<EntityRegionMove>();
         }
 
         public RegionId RegionId { get; }
@@ -153,6 +155,23 @@ namespace FantasySim.Simulation.State
         public IReadOnlyList<long> DeletedRelationshipTermIds { get; }
         public IReadOnlyList<EntityGoalState> UpdatedEntityGoals { get; }
         public IReadOnlyList<long> DeletedEntityGoalIds { get; }
+        public IReadOnlyList<EntityRegionMove> UpdatedEntityPositions { get; }
+    }
+
+    /// <summary>
+    /// Coarse-simulation request to relocate an entity to a different region, addressed by the
+    /// destination's stable region key. The save-state region id is resolved when persisted.
+    /// </summary>
+    public sealed class EntityRegionMove
+    {
+        public EntityRegionMove(EntityId entityId, string regionKey)
+        {
+            EntityId = entityId;
+            RegionKey = regionKey;
+        }
+
+        public EntityId EntityId { get; }
+        public string RegionKey { get; }
     }
 
     public sealed class PendingWorldEvent

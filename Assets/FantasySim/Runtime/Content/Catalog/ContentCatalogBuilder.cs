@@ -16,6 +16,7 @@ namespace FantasySim.Content.Catalog
         private readonly IContentLoader<EntityTemplateDefinition> entityTemplateLoader;
         private readonly IContentLoader<GoalDefinition> goalLoader;
         private readonly IContentLoader<EntityRelationshipDefinition> entityRelationshipLoader;
+        private readonly IContentLoader<TravelEdgeDefinition> travelEdgeLoader;
 
         public ContentCatalogBuilder(string gameDataRoot = null)
             : this(
@@ -26,7 +27,8 @@ namespace FantasySim.Content.Catalog
                 new RegionTemplateJsonLoader(GameDataJsonPaths.Regions(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
                 new EntityTemplateJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
                 new GoalTemplateJsonLoader(GameDataJsonPaths.Goals(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
-                new EntityRelationshipJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot))
+                new EntityRelationshipJsonLoader(GameDataJsonPaths.EntityTemplates(gameDataRoot ?? GameDataJsonPaths.DefaultRoot)),
+                new TravelEdgeJsonLoader(GameDataJsonPaths.Regions(gameDataRoot ?? GameDataJsonPaths.DefaultRoot))
             )
         {
         }
@@ -39,7 +41,8 @@ namespace FantasySim.Content.Catalog
             IContentLoader<RegionDefinition> regionLoader,
             IContentLoader<EntityTemplateDefinition> entityTemplateLoader,
             IContentLoader<GoalDefinition> goalLoader = null,
-            IContentLoader<EntityRelationshipDefinition> entityRelationshipLoader = null
+            IContentLoader<EntityRelationshipDefinition> entityRelationshipLoader = null,
+            IContentLoader<TravelEdgeDefinition> travelEdgeLoader = null
         )
         {
             this.factionLoader = factionLoader;
@@ -50,6 +53,7 @@ namespace FantasySim.Content.Catalog
             this.entityTemplateLoader = entityTemplateLoader;
             this.goalLoader = goalLoader;
             this.entityRelationshipLoader = entityRelationshipLoader;
+            this.travelEdgeLoader = travelEdgeLoader;
         }
 
         public ContentCatalogBuildResult Build()
@@ -63,6 +67,8 @@ namespace FantasySim.Content.Catalog
             IReadOnlyList<GoalDefinition> goals = goalLoader?.Load() ?? System.Array.Empty<GoalDefinition>();
             IReadOnlyList<EntityRelationshipDefinition> entityRelationships =
                 entityRelationshipLoader?.Load() ?? System.Array.Empty<EntityRelationshipDefinition>();
+            IReadOnlyList<TravelEdgeDefinition> travelEdges =
+                travelEdgeLoader?.Load() ?? System.Array.Empty<TravelEdgeDefinition>();
 
             var messages = new List<ValidationMessage>();
             messages.AddRange(factionLoader.Validate(factions));
@@ -81,6 +87,11 @@ namespace FantasySim.Content.Catalog
                 messages.AddRange(entityRelationshipLoader.Validate(entityRelationships));
             }
 
+            if (travelEdgeLoader != null)
+            {
+                messages.AddRange(travelEdgeLoader.Validate(travelEdges));
+            }
+
             Dictionary<string, FactionDefinition> factionsByKey = IndexByKey(factions, definition => definition.key);
             Dictionary<string, RaceDefinition> racesByKey = IndexByKey(races, definition => definition.key);
             Dictionary<string, StatDefinition> statsByKey = IndexByKey(stats, definition => definition.key);
@@ -94,6 +105,7 @@ namespace FantasySim.Content.Catalog
             ValidateTraitReferences(traits, statsByKey, traitsByKey, messages);
             ValidateEntityTemplateReferences(entityTemplates, racesByKey, factionsByKey, regionsByKey, traitsByKey, messages);
             ValidateEntityRelationshipReferences(entityRelationships, entityTemplatesByKey, messages);
+            ValidateTravelEdgeReferences(travelEdges, regionsByKey, messages);
 
             var catalog = new ContentCatalog(
                 factionsByKey,
@@ -103,7 +115,8 @@ namespace FantasySim.Content.Catalog
                 regionsByKey,
                 entityTemplatesByKey,
                 goalsByKey,
-                entityRelationships
+                entityRelationships,
+                travelEdges
             );
 
             return new ContentCatalogBuildResult(catalog, new ContentValidationResult(messages));
@@ -268,6 +281,34 @@ namespace FantasySim.Content.Catalog
                     "to",
                     relationship.toKey,
                     entityTemplatesByKey.ContainsKey
+                );
+            }
+        }
+
+        private static void ValidateTravelEdgeReferences(
+            IEnumerable<TravelEdgeDefinition> travelEdges,
+            IReadOnlyDictionary<string, RegionDefinition> regionsByKey,
+            List<ValidationMessage> messages
+        )
+        {
+            foreach (TravelEdgeDefinition edge in travelEdges)
+            {
+                string ownerKey = $"{edge.fromKey} -> {edge.toKey}";
+                AddMissingReference(
+                    messages,
+                    "travel edges",
+                    ownerKey,
+                    "from",
+                    edge.fromKey,
+                    regionsByKey.ContainsKey
+                );
+                AddMissingReference(
+                    messages,
+                    "travel edges",
+                    ownerKey,
+                    "to",
+                    edge.toKey,
+                    regionsByKey.ContainsKey
                 );
             }
         }

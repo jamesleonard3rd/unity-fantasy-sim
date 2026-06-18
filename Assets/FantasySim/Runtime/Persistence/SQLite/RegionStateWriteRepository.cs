@@ -39,6 +39,7 @@ namespace FantasySim.Persistence.SQLite
             int relationshipTermsDeleted = 0;
             int entityGoalsUpdated = 0;
             int entityGoalsDeleted = 0;
+            int entityPositionsUpdated = 0;
             using SQLiteConnection connection = connectionFactory.OpenConnection();
             connection.RunInTransaction(() =>
             {
@@ -77,6 +78,11 @@ namespace FantasySim.Persistence.SQLite
                     {
                         entityGoalsDeleted += DeleteEntityGoal(connection, goalId);
                     }
+
+                    foreach (EntityRegionMove move in regionDelta.UpdatedEntityPositions)
+                    {
+                        entityPositionsUpdated += UpdateEntityPosition(connection, move);
+                    }
                 }
 
                 int clockRowsUpdated = connection.Execute(
@@ -101,7 +107,8 @@ namespace FantasySim.Persistence.SQLite
                 relationshipTermsUpdated,
                 relationshipTermsDeleted,
                 entityGoalsUpdated,
-                entityGoalsDeleted
+                entityGoalsDeleted,
+                entityPositionsUpdated
             );
         }
 
@@ -299,6 +306,29 @@ namespace FantasySim.Persistence.SQLite
                 goalId
             );
         }
+
+        private static int UpdateEntityPosition(SQLiteConnection connection, EntityRegionMove move)
+        {
+            if (move == null)
+            {
+                throw new ArgumentNullException(nameof(move));
+            }
+
+            if (string.IsNullOrWhiteSpace(move.RegionKey))
+            {
+                throw new ArgumentException("Entity region move target key is required.", nameof(move));
+            }
+
+            return connection.Execute(
+                @"UPDATE entity_positions
+                  SET region_id = (SELECT id FROM regions WHERE key = ?)
+                  WHERE entity_id = ?
+                    AND EXISTS (SELECT 1 FROM regions WHERE key = ?)",
+                move.RegionKey,
+                move.EntityId.Value,
+                move.RegionKey
+            );
+        }
     }
 
     public sealed class RegionStateWriteResult
@@ -311,7 +341,8 @@ namespace FantasySim.Persistence.SQLite
             int relationshipTermsUpdated = 0,
             int relationshipTermsDeleted = 0,
             int entityGoalsUpdated = 0,
-            int entityGoalsDeleted = 0
+            int entityGoalsDeleted = 0,
+            int entityPositionsUpdated = 0
         )
         {
             PreviousTick = previousTick;
@@ -322,6 +353,7 @@ namespace FantasySim.Persistence.SQLite
             RelationshipTermsDeleted = relationshipTermsDeleted;
             EntityGoalsUpdated = entityGoalsUpdated;
             EntityGoalsDeleted = entityGoalsDeleted;
+            EntityPositionsUpdated = entityPositionsUpdated;
         }
 
         public FantasySim.Core.Time.GameTick PreviousTick { get; }
@@ -332,5 +364,6 @@ namespace FantasySim.Persistence.SQLite
         public int RelationshipTermsDeleted { get; }
         public int EntityGoalsUpdated { get; }
         public int EntityGoalsDeleted { get; }
+        public int EntityPositionsUpdated { get; }
     }
 }

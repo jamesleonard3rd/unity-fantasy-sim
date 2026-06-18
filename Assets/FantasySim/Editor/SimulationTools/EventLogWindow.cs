@@ -5,6 +5,8 @@ using FantasySim.Persistence.SQLite;
 using FantasySim.Session;
 using UnityEditor;
 using UnityEngine;
+using EntityId = FantasySim.Core.Ids.EntityId;
+using RegionId = FantasySim.Core.Ids.RegionId;
 
 namespace FantasySim.Editor.SimulationTools
 {

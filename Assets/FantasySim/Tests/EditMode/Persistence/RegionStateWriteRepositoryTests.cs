@@ -253,6 +253,51 @@ namespace FantasySim.Tests.EditMode.Persistence
             Assert.That(assertionConnection.ExecuteScalar<int>("SELECT priority FROM entity_goals WHERE id = ?", unchangedGoalId), Is.EqualTo(10));
         }
 
+        [Test]
+        public void WritePartitionTickRelocatesEntityToTargetRegionByKey()
+        {
+            var initializer = new DatabaseInitializer(pathProvider);
+            initializer.GenerateStarterWorldIfEmpty(CreateValidBuildResult());
+            var readRepository = new StarterWorldReadRepository(pathProvider);
+            LoadedPartitionState state = readRepository.LoadStarterWorld();
+            RegionState childRegion = state.Regions.Single(regionState => regionState.Key == "child_region");
+            EntityState hero = state.Entities.Single(entity => entity.TemplateKey == "hero");
+            long parentRegionId;
+            using (SQLiteConnection connection = new SqliteConnectionFactory(pathProvider).OpenConnection())
+            {
+                parentRegionId = connection.ExecuteScalar<long>("SELECT id FROM regions WHERE key = ?", "parent_region");
+            }
+
+            var delta = new PartitionTickDelta(
+                state.TickContext.CurrentTick,
+                new GameTick(1),
+                new[]
+                {
+                    new RegionStateDelta(
+                        childRegion.Id,
+                        new GameTick(1),
+                        new PendingWorldEvent[0],
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        new[] { new EntityRegionMove(hero.Id, "parent_region") }
+                    )
+                }
+            );
+            var writeRepository = new RegionStateWriteRepository(pathProvider);
+
+            RegionStateWriteResult result = writeRepository.WritePartitionTick(state, delta);
+
+            Assert.That(result.EntityPositionsUpdated, Is.EqualTo(1));
+            using SQLiteConnection assertionConnection = new SqliteConnectionFactory(pathProvider).OpenConnection();
+            Assert.That(
+                assertionConnection.ExecuteScalar<long>("SELECT region_id FROM entity_positions WHERE entity_id = ?", hero.Id.Value),
+                Is.EqualTo(parentRegionId)
+            );
+        }
+
         private static ContentCatalogBuildResult CreateValidBuildResult()
         {
             var regions = new Dictionary<string, RegionDefinition>

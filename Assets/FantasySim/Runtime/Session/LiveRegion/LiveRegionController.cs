@@ -3,6 +3,8 @@ using FantasySim.Core.Ids;
 using FantasySim.Persistence.SQLite;
 using FantasySim.Simulation.State;
 using UnityEngine;
+using EntityId = FantasySim.Core.Ids.EntityId;
+using RegionId = FantasySim.Core.Ids.RegionId;
 
 namespace FantasySim.Session
 {

@@ -327,6 +327,87 @@ namespace FantasySim.Content.Loaders
         }
     }
 
+    public sealed class TravelEdgeJsonLoader : IContentLoader<TravelEdgeDefinition>
+    {
+        private readonly string path;
+
+        public TravelEdgeJsonLoader(string path)
+        {
+            this.path = path;
+        }
+
+        public IReadOnlyList<TravelEdgeDefinition> Load()
+        {
+            TravelEdgeFile file = JsonContentLoaderUtility.LoadFile<TravelEdgeFile>(path);
+            TravelEdgeJson[] edges = file?.travel_edges ?? Array.Empty<TravelEdgeJson>();
+            var definitions = new TravelEdgeDefinition[edges.Length];
+
+            for (int index = 0; index < edges.Length; index++)
+            {
+                TravelEdgeJson edge = edges[index];
+                definitions[index] = new TravelEdgeDefinition
+                {
+                    fromKey = ContentKeyNormalizer.Normalize(edge.from),
+                    toKey = ContentKeyNormalizer.Normalize(edge.to),
+                    mode = edge.mode,
+                    baseTicks = edge.base_ticks,
+                    bidirectional = edge.bidirectional
+                };
+            }
+
+            return definitions;
+        }
+
+        public IReadOnlyList<ValidationMessage> Validate(IReadOnlyList<TravelEdgeDefinition> definitions)
+        {
+            var messages = new List<ValidationMessage>();
+            if (definitions == null)
+            {
+                return messages;
+            }
+
+            for (int index = 0; index < definitions.Count; index++)
+            {
+                TravelEdgeDefinition edge = definitions[index];
+                if (string.IsNullOrWhiteSpace(edge.fromKey) || string.IsNullOrWhiteSpace(edge.toKey))
+                {
+                    messages.Add(new ValidationMessage(
+                        ValidationSeverity.Error,
+                        "content.invalid_definition",
+                        $"travel edge at index {index} is missing a 'from' or 'to' endpoint."
+                    ));
+                }
+
+                if (edge.baseTicks < 0)
+                {
+                    messages.Add(new ValidationMessage(
+                        ValidationSeverity.Error,
+                        "content.invalid_definition",
+                        $"travel edge '{edge.fromKey}' -> '{edge.toKey}' has a negative base_ticks value."
+                    ));
+                }
+            }
+
+            return messages;
+        }
+
+        [Serializable]
+        private sealed class TravelEdgeFile
+        {
+            public TravelEdgeJson[] travel_edges;
+        }
+
+        [Serializable]
+        private sealed class TravelEdgeJson
+        {
+            public string from;
+            public string to;
+            public string mode;
+            public int base_ticks;
+            public bool bidirectional;
+        }
+    }
+
     public sealed class EntityTemplateJsonLoader : IContentLoader<EntityTemplateDefinition>
     {
         private readonly string path;
